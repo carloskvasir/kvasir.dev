@@ -7,6 +7,11 @@ import remarkGfm from "remark-gfm";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  output: "export",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
   experimental: {
     mdxRs: false, // Precisamos desabilitar o mdxRs para usar plugins customizados
   },

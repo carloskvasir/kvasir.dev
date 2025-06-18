@@ -5,12 +5,12 @@ import path from "path";
 const postsDirectory = path.join(process.cwd(), "src", "content", "notes");
 
 // Função para processar caminhos de imagens no conteúdo MDX
-function processImagePaths(content: string, year: string, month: string, slug: string): string {
-  // Substituir caminhos relativos de imagens por URLs da API
+function processImagePaths(content: string, year: string, month: string): string {
+  // Substituir caminhos relativos de imagens por URLs estáticas
   return content.replace(
     /!\[([^\]]*)\]\(\.\/([^)]+)\)/g,
     (match, alt, filename) => {
-      return `![${alt}](/api/posts/${year}/${month}/${slug}/${filename})`;
+      return `![${alt}](/posts/${year}/${month}/${filename})`;
     }
   );
 }
@@ -63,7 +63,7 @@ export function getAllPosts(): BlogPost[] {
           date: data.date || "",
           description: data.description || "",
           tags: data.tags || [],
-          content: processImagePaths(content, year, month, slug),
+          content: processImagePaths(content, year, month),
           year,
           month,
         });
@@ -92,7 +92,7 @@ export function getAllPosts(): BlogPost[] {
           date: data.date || "",
           description: data.description || "",
           tags: data.tags || [],
-          content: processImagePaths(content, year, month, slug),
+          content: processImagePaths(content, year, month),
           year,
           month,
         });
@@ -123,7 +123,7 @@ export function getPostBySlug(
       date: data.date || "",
       description: data.description || "",
       tags: data.tags || [],
-      content: processImagePaths(content, year, month, slug),
+      content: processImagePaths(content, year, month),
       year,
       month,
     };

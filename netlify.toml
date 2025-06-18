@@ -3,7 +3,7 @@
   command = "npm run build"
   
   # Diretório dos arquivos estáticos gerados
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   # Versão do Node.js
@@ -11,12 +11,16 @@
   # Instalar dependências antes do build
   NPM_FLAGS = "--production=false"
 
-# Configurações para Single Page Application
+# Configurações para pages com trailing slash
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
+  from = "/notes/:year/:month/:slug"
+  to = "/notes/:year/:month/:slug/"
+  status = 301
+
+[[redirects]]
+  from = "/post/:slug"
+  to = "/post/:slug/"
+  status = 301
 
 # Headers para melhor performance
 [[headers]]
