@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Site Pessoal",
+    "github": "https://github.com/carloskvasir/psite",
+    "link": "https://kvasir.dev",
+    "short_desc": "Site pessoal desenvolvido com Next.js e TypeScript",
+    "long_desc": "Site pessoal estático construído com Next.js, TypeScript, Tailwind CSS e shadcn/ui. Inclui sistema de blog com MDX, modo escuro/claro e otimizado para SEO."
+  },
+  {
+    "name": "Rails API Boilerplate",
+    "github": "https://github.com/carloskvasir/rails-api-boilerplate",
+    "short_desc": "Template base para APIs Rails com autenticação JWT",
+    "long_desc": "Boilerplate completo para APIs Rails incluindo autenticação JWT, documentação Swagger, testes automatizados e configuração para deploy em container Docker."
+  },
+  {
+    "name": "React Dashboard",
+    "github": "https://github.com/carloskvasir/react-dashboard",
+    "link": "https://dashboard-demo.kvasir.dev",
+    "short_desc": "Dashboard administrativo com React e TypeScript",
+    "long_desc": "Interface administrativa moderna desenvolvida com React, TypeScript, React Query para gerenciamento de estado e Chart.js para visualização de dados. Integração com API Rails."
+  }
+]

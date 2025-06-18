@@ -1,0 +1,279 @@
+---
+title: "Configurando um Ambiente de Desenvolvimento Rails Perfeito"
+date: "2024-12-18"
+description: "Um guia completo para configurar um ambiente de desenvolvimento Rails moderno e produtivo com as melhores ferramentas e práticas"
+tags: ["rails", "desenvolvimento", "ambiente", "produtividade", "ferramentas"]
+---
+
+# Configurando um Ambiente de Desenvolvimento Rails Perfeito
+
+Um ambiente de desenvolvimento bem configurado é fundamental para a produtividade de qualquer desenvolvedor Rails. Neste post, vou compartilhar como configuro meu ambiente para ter máxima eficiência e conforto durante o desenvolvimento.
+
+![Ambiente de desenvolvimento Rails](./rails-dev-setup.png.placeholder)
+
+## Por que um bom ambiente importa?
+
+Depois de anos desenvolvendo em Rails, aprendi que investir tempo na configuração inicial do ambiente economiza horas no futuro. Um ambiente bem configurado oferece:
+
+- **Produtividade aumentada** - Ferramentas que automatizam tarefas repetitivas
+- **Menos erros** - Linting e formatação automática
+- **Debug eficiente** - Ferramentas de debugging integradas
+- **Colaboração melhor** - Configurações consistentes entre a equipe
+
+## Ferramentas Essenciais
+
+### 1. Terminal e Shell
+
+Uso o **Wezterm** como terminal com **Zsh** e **Oh My Zsh**:
+
+```bash
+# Instalar Oh My Zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Tema recomendado
+ZSH_THEME="robbyrussell"
+```
+
+### 2. Editor: VS Code
+
+Extensões indispensáveis para Rails:
+
+- **Ruby LSP** - Suporte completo ao Ruby
+- **Ruby Solargraph** - IntelliSense e documentação
+- **Rails** - Snippets e navegação
+- **GitLens** - Histórico e blame do Git
+- **Thunder Client** - Testar APIs
+
+![VS Code configurado para Rails](./vscode-rails.png.placeholder)
+
+### 3. Gerenciador de Versões: mise
+
+Como mostrei no [post anterior sobre mise](/post/instalando-mise-ruby-ubuntu), uso o mise para gerenciar versões do Ruby, Node.js e outras ferramentas.
+
+```bash
+# .mise.toml no projeto
+[tools]
+ruby = "3.2.0"
+node = "20.10.0"
+postgres = "15"
+```
+
+## Configuração do Projeto Rails
+
+### Estrutura do Gemfile
+
+Organizo as gems de desenvolvimento de forma clara:
+
+```ruby
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry-byebug'
+end
+
+group :development do
+  gem 'rubocop-rails', require: false
+  gem 'solargraph'
+  gem 'rails_best_practices'
+  gem 'bullet'
+end
+```
+
+### Scripts Úteis
+
+Crio scripts em `bin/` para automatizar tarefas:
+
+```bash
+#!/bin/bash
+# bin/setup
+set -e
+
+echo "🚀 Configurando o projeto..."
+
+# Instalar dependências
+bundle install
+yarn install
+
+# Setup do banco
+rails db:create
+rails db:migrate
+rails db:seed
+
+echo "✅ Projeto configurado com sucesso!"
+```
+
+## Docker para Serviços
+
+Uso Docker Compose para serviços auxiliares:
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
+```
+
+![Docker containers rodando](./docker-services.png.placeholder)
+
+## Dotfiles e Configurações
+
+Mantenho minhas configurações no GitHub para sincronizar entre máquinas:
+
+```bash
+# ~/.zshrc
+export EDITOR="code"
+export BUNDLER_EDITOR="code"
+export RAILS_ENV="development"
+
+# Aliases úteis
+alias be="bundle exec"
+alias rc="rails console"
+alias rs="rails server"
+alias rt="rails test"
+```
+
+## Debugging Eficiente
+
+### Pry para Debug
+
+Configure o Pry como console padrão:
+
+```ruby
+# config/application.rb
+console do
+  require "pry"
+  config.console = Pry
+end
+```
+
+### Rails Console Melhorado
+
+Adicione gems para melhorar o console:
+
+```ruby
+# Gemfile
+gem 'awesome_print'
+gem 'hirb'
+```
+
+## Testes e Qualidade
+
+### RSpec Configuration
+
+```ruby
+# spec/rails_helper.rb
+RSpec.configure do |config|
+  config.use_transactional_fixtures = true
+  config.infer_spec_type_from_file_location!
+  config.filter_rails_from_backtrace!
+  
+  # FactoryBot
+  config.include FactoryBot::Syntax::Methods
+end
+```
+
+### Rubocop para Consistência
+
+```yaml
+# .rubocop.yml
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+```
+
+## Produtividade com Snippets
+
+Crio snippets personalizados no VS Code:
+
+```json
+{
+  "Rails Model": {
+    "prefix": "rmodel",
+    "body": [
+      "class ${1:ModelName} < ApplicationRecord",
+      "  $0",
+      "end"
+    ]
+  }
+}
+```
+
+## Monitoramento e Performance
+
+### Bullet para N+1 Queries
+
+```ruby
+# config/environments/development.rb
+config.after_initialize do
+  Bullet.enable = true
+  Bullet.bullet_logger = true
+  Bullet.console = true
+end
+```
+
+### Rails Panel para Chrome
+
+A extensão Rails Panel mostra informações detalhadas sobre cada request.
+
+![Rails Panel no Chrome](./rails-panel.png.placeholder)
+
+## Backup e Sincronização
+
+### Configurações na Nuvem
+
+- **Dotfiles** no GitHub
+- **Configurações do VS Code** sincronizadas
+- **Snippets e extensões** versionados
+
+### Scripts de Backup
+
+```bash
+#!/bin/bash
+# scripts/backup-db.sh
+pg_dump myapp_development > "backup_$(date +%Y%m%d_%H%M%S).sql"
+```
+
+## Conclusão
+
+Um ambiente bem configurado é um investimento que se paga rapidamente. Essas configurações me permitem:
+
+- Começar novos projetos em minutos
+- Debuggar problemas rapidamente
+- Manter código consistente e de qualidade
+- Colaborar eficientemente com a equipe
+
+## Próximos Passos
+
+No próximo post, vou mostrar como configurar CI/CD com GitHub Actions para projetos Rails. Não perca!
+
+---
+
+**Recursos Úteis:**
+
+- [Meus dotfiles no GitHub](https://github.com/usuario/dotfiles)
+- [Documentação do mise](https://mise.jdx.dev/)
+- [Rails Guides](https://guides.rubyonrails.org/)
+
+*Tem alguma dica de produtividade que funciona para você? Compartilhe nos comentários!*

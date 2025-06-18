@@ -1,0 +1,258 @@
+---
+title: "Instalando mise e Ruby no Linux Mint/Ubuntu"
+date: "2024-12-17"
+excerpt: "Guia completo para instalar o mise (gerenciador de versões) e configurar Ruby no Linux Mint e Ubuntu de forma simples e eficiente."
+tags: ["ruby", "mise", "ubuntu", "linux", "desenvolvimento"]
+---
+
+# Instalando mise e Ruby no Linux Mint/Ubuntu
+
+O **mise** (anteriormente conhecido como rtx) é um gerenciador de versões moderno e rápido que substitui ferramentas como rbenv, nvm, pyenv e outras. Neste guia, vou mostrar como instalar o mise e configurar o Ruby no Linux Mint ou Ubuntu.
+
+## O que é o mise?
+
+O mise é uma ferramenta unificada para gerenciar versões de linguagens de programação e ferramentas. Ele é:
+
+- **Rápido**: Escrito em Rust, muito mais rápido que alternativas
+- **Unificado**: Gerencia múltiplas linguagens em uma só ferramenta
+- **Compatível**: Funciona com arquivos `.tool-versions` do asdf
+- **Simples**: Interface limpa e intuitiva
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter os pacotes básicos instalados:
+
+```bash
+sudo apt update
+sudo apt install -y curl git build-essential libssl-dev libyaml-dev
+```
+
+## Instalando o mise
+
+### Método 1: Usando o script oficial (Recomendado)
+
+```bash
+curl https://mise.run | sh
+```
+
+### Método 2: Download manual
+
+```bash
+# Download da versão mais recente
+curl -L https://github.com/jdx/mise/releases/latest/download/mise-linux-x64 -o ~/.local/bin/mise
+chmod +x ~/.local/bin/mise
+```
+
+## Configurando o mise
+
+Após a instalação, adicione o mise ao seu shell:
+
+### Para Bash
+
+Adicione ao final do arquivo `~/.bashrc`:
+
+```bash
+# mise configuration
+eval "$(~/.local/bin/mise activate bash)"
+```
+
+### Para Zsh
+
+Adicione ao final do arquivo `~/.zshrc`:
+
+```bash
+# mise configuration
+eval "$(~/.local/bin/mise activate zsh)"
+```
+
+### Para Fish
+
+Adicione ao arquivo `~/.config/fish/config.fish`:
+
+```fish
+# mise configuration
+~/.local/bin/mise activate fish | source
+```
+
+Depois, recarregue seu shell:
+
+```bash
+source ~/.bashrc  # ou ~/.zshrc dependendo do seu shell
+```
+
+## Instalando Ruby com mise
+
+### Listando versões disponíveis
+
+```bash
+# Ver todas as versões do Ruby disponíveis
+mise list-remote ruby
+
+# Ver apenas as versões mais recentes
+mise list-remote ruby | tail -20
+```
+
+### Instalando uma versão específica
+
+```bash
+# Instalar a versão mais recente (3.3.x)
+mise install ruby@3.3
+
+# Instalar uma versão específica
+mise install ruby@3.2.3
+
+# Instalar e definir como global
+mise use --global ruby@3.3
+```
+
+### Definindo versões por projeto
+
+Crie um arquivo `.tool-versions` na raiz do seu projeto:
+
+```bash
+# No diretório do seu projeto
+echo "ruby 3.3.0" > .tool-versions
+
+# Ou use o comando mise
+mise use ruby@3.3.0
+```
+
+## Verificando a instalação
+
+```bash
+# Verificar se o Ruby foi instalado corretamente
+ruby --version
+
+# Verificar a localização do Ruby
+which ruby
+
+# Verificar versões instaladas do mise
+mise list
+```
+
+## Configurações extras para Ruby
+
+### Instalando gems essenciais
+
+```bash
+# Atualizar o RubyGems
+gem update --system
+
+# Instalar Bundler
+gem install bundler
+
+# Instalar Rails (se necessário)
+gem install rails
+```
+
+### Configurando o Bundler
+
+```bash
+# Configurar para instalar gems localmente no projeto
+bundle config set --local path 'vendor/bundle'
+
+# Não instalar gems de documentação por padrão
+echo "gem: --no-document" >> ~/.gemrc
+```
+
+## Comandos úteis do mise
+
+```bash
+# Listar ferramentas instaladas
+mise list
+
+# Atualizar o mise
+mise self-update
+
+# Instalar plugins adicionais
+mise plugin install nodejs
+mise plugin install python
+
+# Ver configuração atual
+mise current
+
+# Remover uma versão
+mise uninstall ruby@3.2.0
+
+# Definir versão local para o projeto atual
+mise use ruby@3.3.0
+
+# Definir versão global
+mise use --global ruby@3.3.0
+```
+
+## Exemplo prático: Configurando um projeto Rails
+
+```bash
+# Criar um novo projeto
+mkdir meu_projeto_rails
+cd meu_projeto_rails
+
+# Definir versão do Ruby para este projeto
+mise use ruby@3.3.0
+
+# Verificar se o arquivo .tool-versions foi criado
+cat .tool-versions
+
+# Instalar Rails
+gem install rails
+
+# Criar uma nova aplicação Rails
+rails new . --database=postgresql --skip-git
+
+# Instalar dependências
+bundle install
+```
+
+## Troubleshooting
+
+### Problema: comando mise não encontrado
+
+```bash
+# Verificar se o PATH está correto
+echo $PATH
+
+# Adicionar manualmente ao PATH
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+### Problema: falha na compilação do Ruby
+
+```bash
+# Instalar dependências de compilação
+sudo apt install -y libffi-dev libgdbm-dev libncurses5-dev \
+  libreadline-dev libsqlite3-dev libssl-dev libyaml-dev zlib1g-dev
+```
+
+### Problema: gems instalando lentamente
+
+```bash
+# Configurar mirror brasileiro para RubyGems
+gem sources --add https://rubygems.org/ --remove https://rubygems.org/
+bundle config mirror.https://rubygems.org https://rubygems.org/
+```
+
+## Comparação com outras ferramentas
+
+| Ferramenta | Linguagens Suportadas | Performance | Facilidade de Uso |
+|:-----------|:----------------------:|:-----------:|:-----------------:|
+| **mise**   | Múltiplas              | ★★★★★       | ★★★★★             |
+| **rbenv**  | Ruby apenas            | ★★★★        | ★★★★              |
+| **rvm**    | Ruby apenas            | ★★★         | ★★★               |
+| **asdf**   | Múltiplas              | ★★★         | ★★★★              |
+
+## Conclusão
+
+O mise é uma excelente opção para gerenciar versões do Ruby e outras linguagens. Sua performance superior e interface unificada tornam o desenvolvimento muito mais eficiente.
+
+Com este setup, você terá um ambiente Ruby moderno e flexível, pronto para qualquer projeto!
+
+## Próximos passos
+
+- Configure seu editor favorito para usar a versão correta do Ruby
+- Explore plugins do mise para outras linguagens
+- Considere usar o mise em seus projetos em produção
+
+---
+
+*Tem dúvidas ou sugestões? Entre em contato!*
