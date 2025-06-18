@@ -1,6 +1,7 @@
 import { MainLayout } from "@/components/layout/main-layout";
-import Image from "next/image";
+import { HomepageSEO } from "@/components/seo";
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 // Tipo para os projetos
 interface Projeto {
@@ -10,33 +11,6 @@ interface Projeto {
   short_desc: string;
   long_desc: string;
 }
-
-// Dados estruturados JSON-LD
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Carlos Kvasir",
-  "jobTitle": "Desenvolvedor Rails Full Stack",
-  "description": "Desenvolvedor especializado em Ruby on Rails, React, TypeScript e soluções web escaláveis",
-  "url": "https://kvasir.dev",
-  "image": "https://kvasir.dev/profile.jpg",
-  "sameAs": [
-    "https://github.com/carloskvasir"
-  ],
-  "knowsAbout": [
-    "Ruby on Rails",
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "API REST",
-    "Desenvolvimento Web",
-    "Full Stack Development"
-  ],
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Freelancer"
-  }
-};
 
 // Importar dados dos projetos
 async function getProjetos(): Promise<Projeto[]> {
@@ -53,13 +27,8 @@ export default async function Home() {
 
   return (
     <MainLayout>
-      {/* Dados estruturados JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      {/* SEO e Dados estruturados */}
+      <HomepageSEO projetos={projetos} />
       
       <div className="relative">
         {/* Hero Section */}

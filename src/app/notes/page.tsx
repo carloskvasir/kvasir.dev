@@ -1,4 +1,5 @@
 import { MainLayout } from "@/components/layout/main-layout";
+import { BlogListingSEO } from "@/components/seo";
 import { getAllPosts } from "@/lib/notes";
 import { Calendar, Tag } from "lucide-react";
 import Link from "next/link";
@@ -38,6 +39,9 @@ export default function NotesPage() {
 
   return (
     <MainLayout>
+      {/* SEO e Dados estruturados */}
+      <BlogListingSEO notes={posts} />
+      
       <div className="py-16">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
@@ -78,6 +82,33 @@ export default function NotesPage() {
                             day: 'numeric'
                           })}
                         </div>
+                        
+                        <div className="flex flex-wrap items-center gap-4 text-sm">
+                          {post.readingTime && (
+                            <div className="flex items-center gap-1 text-muted-foreground">
+                              <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              {post.readingTime} min
+                            </div>
+                          )}
+                          
+                          {post.category && (
+                            <div className="flex items-center gap-1 text-muted-foreground">
+                              <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                              </svg>
+                              {post.category}
+                            </div>
+                          )}
+                          
+                          {post.featured && (
+                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                              ⭐ Destaque
+                            </span>
+                          )}
+                        </div>
+                        
                         {post.tags.length > 0 && (
                           <div className="flex items-center gap-1">
                             <Tag className="h-4 w-4" />
@@ -87,9 +118,9 @@ export default function NotesPage() {
                       </div>
                     </div>
                     
-                    {post.description && (
+                    {(post.excerpt || post.description) && (
                       <p className="text-muted-foreground leading-relaxed">
-                        {post.description}
+                        {post.excerpt || post.description}
                       </p>
                     )}
                     

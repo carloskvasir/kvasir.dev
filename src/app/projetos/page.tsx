@@ -1,4 +1,5 @@
 import { MainLayout } from "@/components/layout/main-layout";
+import { ProjectsSEO } from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
@@ -69,6 +70,9 @@ export default async function ProjetosPage() {
 
   return (
     <MainLayout>
+      {/* SEO e Dados estruturados */}
+      <ProjectsSEO projetos={projetos} />
+      
       <div className="py-16">
         <div className="max-w-4xl mx-auto">
           {/* Header */}

@@ -5,7 +5,11 @@ import path from "path";
 const postsDirectory = path.join(process.cwd(), "src", "content", "notes");
 
 // Função para processar caminhos de imagens no conteúdo MDX
-function processImagePaths(content: string, year: string, month: string): string {
+function processImagePaths(
+  content: string,
+  year: string,
+  month: string
+): string {
   // Substituir caminhos relativos de imagens por URLs estáticas
   return content.replace(
     /!\[([^\]]*)\]\(\.\/([^)]+)\)/g,
@@ -13,6 +17,54 @@ function processImagePaths(content: string, year: string, month: string): string
       return `![${alt}](/posts/${year}/${month}/${filename})`;
     }
   );
+}
+
+// Função para calcular tempo de leitura estimado
+function calculateReadingTime(content: string): number {
+  const wordsPerMinute = 200; // Média de palavras por minuto em português
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return Math.max(1, minutes); // Mínimo de 1 minuto
+}
+
+// Função para extrair palavras-chave do conteúdo
+function extractKeywords(
+  content: string,
+  tags: string[],
+  title: string
+): string[] {
+  const keywords = new Set<string>();
+
+  // Adicionar tags como keywords
+  tags.forEach((tag) => keywords.add(tag.toLowerCase()));
+
+  // Extrair palavras importantes do título
+  const titleWords = title
+    .toLowerCase()
+    .split(/\s+/)
+    .filter((word) => word.length > 3)
+    .slice(0, 3);
+  titleWords.forEach((word) => keywords.add(word));
+
+  // Palavras técnicas comuns em posts de desenvolvimento
+  const techKeywords = [
+    "rails",
+    "ruby",
+    "react",
+    "typescript",
+    "javascript",
+    "desenvolvimento",
+    "api",
+    "docker",
+    "postgresql",
+  ];
+  techKeywords.forEach((keyword) => {
+    if (content.toLowerCase().includes(keyword)) {
+      keywords.add(keyword);
+    }
+  });
+
+  return Array.from(keywords).slice(0, 10); // Máximo de 10 keywords
 }
 
 export interface BlogPost {
@@ -24,6 +76,17 @@ export interface BlogPost {
   content: string;
   year: string;
   month: string;
+  // Campos SEO adicionais
+  excerpt?: string;
+  keywords?: string[];
+  author?: string;
+  category?: string;
+  readingTime?: number;
+  lastModified?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  featured?: boolean;
+  language?: string;
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -61,11 +124,26 @@ export function getAllPosts(): BlogPost[] {
           slug,
           title: data.title || slug,
           date: data.date || "",
-          description: data.description || "",
+          description: data.description || data.excerpt || "",
           tags: data.tags || [],
           content: processImagePaths(content, year, month),
           year,
           month,
+          // Campos SEO adicionais
+          excerpt: data.excerpt || data.description || "",
+          keywords:
+            data.keywords ||
+            extractKeywords(content, data.tags || [], data.title || slug),
+          author: data.author || "Carlos Kvasir",
+          category: data.category || "Desenvolvimento",
+          readingTime: data.readingTime || calculateReadingTime(content),
+          lastModified: data.lastModified || data.date || "",
+          canonicalUrl:
+            data.canonicalUrl ||
+            `https://kvasir.dev/notes/${year}/${month}/${slug}`,
+          ogImage: data.ogImage || "/profile.jpg",
+          featured: data.featured || false,
+          language: data.language || "pt-BR",
         });
       });
 
@@ -86,16 +164,33 @@ export function getAllPosts(): BlogPost[] {
           const slug = file.replace(/\.mdx$/, "");
           const fullPath = path.join(folderPath, file);
           const fileContents = fs.readFileSync(fullPath, "utf8");
-          const { data, content } = matter(fileContents);        posts.push({
-          slug,
-          title: data.title || slug,
-          date: data.date || "",
-          description: data.description || "",
-          tags: data.tags || [],
-          content: processImagePaths(content, year, month),
-          year,
-          month,
-        });
+          const { data, content } = matter(fileContents);
+
+          posts.push({
+            slug,
+            title: data.title || slug,
+            date: data.date || "",
+            description: data.description || data.excerpt || "",
+            tags: data.tags || [],
+            content: processImagePaths(content, year, month),
+            year,
+            month,
+            // Campos SEO adicionais
+            excerpt: data.excerpt || data.description || "",
+            keywords:
+              data.keywords ||
+              extractKeywords(content, data.tags || [], data.title || slug),
+            author: data.author || "Carlos Kvasir",
+            category: data.category || "Desenvolvimento",
+            readingTime: data.readingTime || calculateReadingTime(content),
+            lastModified: data.lastModified || data.date || "",
+            canonicalUrl:
+              data.canonicalUrl ||
+              `https://kvasir.dev/notes/${year}/${month}/${slug}`,
+            ogImage: data.ogImage || "/profile.jpg",
+            featured: data.featured || false,
+            language: data.language || "pt-BR",
+          });
         });
       });
     });
@@ -114,7 +209,7 @@ export function getPostBySlug(
 ): BlogPost | null {
   try {
     const monthPath = path.join(postsDirectory, year, month);
-    
+
     // Primeiro, tentar arquivo MDX direto no mês
     try {
       const directPath = path.join(monthPath, `${slug}.mdx`);
@@ -160,7 +255,7 @@ export function getPostBySlug(
         }
       }
     }
-    
+
     return null;
   } catch {
     return null;
