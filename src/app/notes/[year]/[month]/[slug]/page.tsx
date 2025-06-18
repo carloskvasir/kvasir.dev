@@ -3,6 +3,7 @@ import { mdxComponents } from "@/components/mdx-components";
 import { getAllPosts, getPostBySlug } from "@/lib/notes";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -16,6 +17,54 @@ interface NotePostPageProps {
     month: string;
     slug: string;
   }>;
+}
+
+export async function generateMetadata({ params }: NotePostPageProps): Promise<Metadata> {
+  const { year, month, slug } = await params;
+  const post = getPostBySlug(year, month, slug);
+
+  if (!post) {
+    return {
+      title: "Post não encontrado",
+      description: "O post que você procura não foi encontrado.",
+    };
+  }
+
+  const postUrl = `https://kvasir.dev/notes/${year}/${month}/${slug}`;
+
+  return {
+    title: post.title,
+    description: post.description || `Post sobre ${post.title} por Carlos Kvasir`,
+    keywords: post.tags,
+    authors: [{ name: "Carlos Kvasir" }],
+    openGraph: {
+      title: post.title,
+      description: post.description || `Post sobre ${post.title} por Carlos Kvasir`,
+      url: postUrl,
+      siteName: "Carlos Kvasir",
+      images: [
+        {
+          url: "/profile.jpg",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Carlos Kvasir"],
+      tags: post.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description || `Post sobre ${post.title} por Carlos Kvasir`,
+      images: ["/profile.jpg"],
+    },
+    alternates: {
+      canonical: postUrl,
+    },
+  };
 }
 
 export async function generateStaticParams() {

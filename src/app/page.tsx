@@ -11,6 +11,33 @@ interface Projeto {
   long_desc: string;
 }
 
+// Dados estruturados JSON-LD
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Carlos Kvasir",
+  "jobTitle": "Desenvolvedor Rails Full Stack",
+  "description": "Desenvolvedor especializado em Ruby on Rails, React, TypeScript e soluções web escaláveis",
+  "url": "https://kvasir.dev",
+  "image": "https://kvasir.dev/profile.jpg",
+  "sameAs": [
+    "https://github.com/carloskvasir"
+  ],
+  "knowsAbout": [
+    "Ruby on Rails",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "API REST",
+    "Desenvolvimento Web",
+    "Full Stack Development"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelancer"
+  }
+};
+
 // Importar dados dos projetos
 async function getProjetos(): Promise<Projeto[]> {
   try {
@@ -26,6 +53,14 @@ export default async function Home() {
 
   return (
     <MainLayout>
+      {/* Dados estruturados JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      
       <div className="relative">
         {/* Hero Section */}
         <section className="py-8 lg:py-12">

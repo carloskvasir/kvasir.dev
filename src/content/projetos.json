@@ -1,7 +1,7 @@
 [
   {
     "name": "Site Pessoal",
-    "github": "https://github.com/carloskvasir/psite",
+    "github": "https://github.com/carloskvasir/kvasir.dev",
     "link": "https://kvasir.dev",
     "short_desc": "Site pessoal desenvolvido com Next.js e TypeScript",
     "long_desc": "Site pessoal estático construído com Next.js, TypeScript, Tailwind CSS e shadcn/ui. Inclui sistema de blog com MDX, modo escuro/claro e otimizado para SEO."

@@ -4,8 +4,33 @@ import { Calendar, Tag } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Posts | kvasir.dev",
-  description: "Compartilhando experiências, dicas e reflexões sobre desenvolvimento Rails e tecnologia em geral.",
+  title: "Posts | Carlos Kvasir",
+  description: "Compartilhando experiências, dicas e reflexões sobre desenvolvimento Rails, React, TypeScript e tecnologia em geral.",
+  keywords: ["blog", "posts", "Rails", "React", "TypeScript", "desenvolvimento", "tecnologia", "Carlos Kvasir"],
+  openGraph: {
+    title: "Posts | Carlos Kvasir",
+    description: "Compartilhando experiências, dicas e reflexões sobre desenvolvimento Rails, React, TypeScript e tecnologia em geral.",
+    url: "https://kvasir.dev/notes",
+    siteName: "Carlos Kvasir",
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Posts do Carlos Kvasir",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Posts | Carlos Kvasir",
+    description: "Compartilhando experiências, dicas e reflexões sobre desenvolvimento Rails, React, TypeScript e tecnologia em geral.",
+    images: ["/profile.jpg"],
+  },
+  alternates: {
+    canonical: "https://kvasir.dev/notes",
+  },
 };
 
 export default function NotesPage() {

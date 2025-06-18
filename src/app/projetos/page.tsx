@@ -3,6 +3,48 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Projetos | Carlos Kvasir",
+  description:
+    "Conheça os projetos desenvolvidos por Carlos Kvasir, incluindo aplicações Rails, React, dashboards e APIs.",
+  keywords: [
+    "projetos",
+    "portfolio",
+    "Rails",
+    "React",
+    "TypeScript",
+    "API",
+    "dashboard",
+    "Carlos Kvasir",
+  ],
+  openGraph: {
+    title: "Projetos | Carlos Kvasir",
+    description:
+      "Conheça os projetos desenvolvidos por Carlos Kvasir, incluindo aplicações Rails, React, dashboards e APIs.",
+    url: "https://kvasir.dev/projetos",
+    siteName: "Carlos Kvasir",
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Projetos do Carlos Kvasir",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projetos | Carlos Kvasir",
+    description:
+      "Conheça os projetos desenvolvidos por Carlos Kvasir, incluindo aplicações Rails, React, dashboards e APIs.",
+    images: ["/profile.jpg"],
+  },
+  alternates: {
+    canonical: "https://kvasir.dev/projetos",
+  },
+};
+
 // Tipo para os projetos
 interface Projeto {
   name: string;
@@ -35,8 +77,8 @@ export default async function ProjetosPage() {
               Meus Projetos
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Uma coleção dos projetos que desenvolvi, utilizando tecnologias como Rails, 
-              React, TypeScript e outras ferramentas modernas.
+              Uma coleção dos projetos que desenvolvi, utilizando tecnologias como
+              Rails, React, TypeScript e outras ferramentas modernas.
             </p>
           </div>
 
@@ -55,11 +97,11 @@ export default async function ProjetosPage() {
                         {projeto.short_desc}
                       </p>
                     </div>
-                    
+
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {projeto.long_desc}
                     </p>
-                    
+
                     <div className="flex gap-2 pt-4">
                       <Button asChild size="sm" variant="outline">
                         <a
@@ -95,7 +137,8 @@ export default async function ProjetosPage() {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold">Projetos em breve</h3>
                 <p className="text-muted-foreground">
-                  Estou preparando a lista dos meus projetos. Volte em breve para conferir!
+                  Estou preparando a lista dos meus projetos. Volte em breve para
+                  conferir!
                 </p>
                 <Button asChild variant="outline">
                   <Link href="/">Voltar para Home</Link>
