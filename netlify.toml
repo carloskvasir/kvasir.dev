@@ -7,7 +7,7 @@
 
 [build.environment]
   # Versão do Node.js
-  NODE_VERSION = "20.11.1"
+  NODE_VERSION = "22.16.0"
   # Instalar dependências antes do build
   NPM_FLAGS = "--production=false"
 
