@@ -14,7 +14,7 @@ interface Projeto {
 // Importar dados dos projetos
 async function getProjetos(): Promise<Projeto[]> {
   try {
-    const projetos = await import("@/data/projetos.json");
+    const projetos = await import("@/content/projetos.json");
     return projetos.default;
   } catch {
     return [];

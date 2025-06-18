@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-const postsDirectory = path.join(process.cwd(), "notes");
+const postsDirectory = path.join(process.cwd(), "src", "content", "notes");
 
 // Função para processar caminhos de imagens no conteúdo MDX
 function processImagePaths(content: string, year: string, month: string, slug: string): string {
