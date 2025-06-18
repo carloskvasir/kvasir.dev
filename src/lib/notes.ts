@@ -113,20 +113,55 @@ export function getPostBySlug(
   slug: string
 ): BlogPost | null {
   try {
-    const fullPath = path.join(postsDirectory, year, month, `${slug}.mdx`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data, content } = matter(fileContents);
+    const monthPath = path.join(postsDirectory, year, month);
+    
+    // Primeiro, tentar arquivo MDX direto no mês
+    try {
+      const directPath = path.join(monthPath, `${slug}.mdx`);
+      const fileContents = fs.readFileSync(directPath, "utf8");
+      const { data, content } = matter(fileContents);
 
-    return {
-      slug,
-      title: data.title || slug,
-      date: data.date || "",
-      description: data.description || "",
-      tags: data.tags || [],
-      content: processImagePaths(content, year, month),
-      year,
-      month,
-    };
+      return {
+        slug,
+        title: data.title || slug,
+        date: data.date || "",
+        description: data.description || "",
+        tags: data.tags || [],
+        content: processImagePaths(content, year, month),
+        year,
+        month,
+      };
+    } catch {
+      // Se não encontrou diretamente, procurar nas pastas .post
+      const postFolders = fs.readdirSync(monthPath).filter((item) => {
+        const itemPath = path.join(monthPath, item);
+        return fs.statSync(itemPath).isDirectory() && item.includes(".post");
+      });
+
+      for (const folder of postFolders) {
+        try {
+          const folderPath = path.join(monthPath, folder);
+          const postPath = path.join(folderPath, `${slug}.mdx`);
+          const fileContents = fs.readFileSync(postPath, "utf8");
+          const { data, content } = matter(fileContents);
+
+          return {
+            slug,
+            title: data.title || slug,
+            date: data.date || "",
+            description: data.description || "",
+            tags: data.tags || [],
+            content: processImagePaths(content, year, month),
+            year,
+            month,
+          };
+        } catch {
+          // Continue procurando na próxima pasta
+        }
+      }
+    }
+    
+    return null;
   } catch {
     return null;
   }
