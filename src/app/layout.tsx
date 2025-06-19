@@ -66,6 +66,19 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.svg', sizes: '180x180', type: 'image/svg+xml' },
+    ],
+    other: [
+      { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
+      { rel: 'apple-touch-icon', url: '/apple-touch-icon.svg', sizes: '180x180' },
+    ],
+  },
   other: {
     "google-site-verification": "", // adicione se tiver
     "msvalidate.01": "", // adicione se tiver  
