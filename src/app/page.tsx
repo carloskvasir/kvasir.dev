@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { HomepageSEO } from "@/components/seo";
+import ContactForm from "@/components/contact-form";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 
@@ -233,6 +234,25 @@ export default async function Home() {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Seção de Contato */}
+      <section id="contato" className="py-16">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              📬 Contato
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Entre em contato por email
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Preencha o formulário abaixo para enviar uma mensagem diretamente para meu email.
+            </p>
+          </div>
+          
+          <ContactForm />
         </div>
       </section>
     </MainLayout>
