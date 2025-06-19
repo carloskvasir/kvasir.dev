@@ -1,6 +1,6 @@
+import ContactForm from "@/components/contact-form";
 import { MainLayout } from "@/components/layout/main-layout";
 import { HomepageSEO } from "@/components/seo";
-import ContactForm from "@/components/contact-form";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 

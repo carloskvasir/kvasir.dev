@@ -1,8 +1,8 @@
+import PageclipScript from "@/components/pageclip-script";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,7 +86,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        <Script src="https://s.pageclip.co/v1/pageclip.js" strategy="afterInteractive" />
+        <PageclipScript />
       </body>
     </html>
   );

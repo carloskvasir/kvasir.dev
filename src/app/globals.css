@@ -345,3 +345,718 @@
     padding: 0.5rem;
   }
 }
+
+/* Personalização do Pageclip */
+.pageclip-form__success {
+  background: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem !important;
+  margin-top: 1rem !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+  font-family: inherit !important;
+}
+
+.pageclip-form__success::before {
+  content: "✅ Mensagem enviada com sucesso!" !important;
+  display: block !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  color: #10b981 !important;
+}
+
+.pageclip-form__success::after {
+  content: "Obrigado pelo contato! Responderei em breve." !important;
+  display: block !important;
+  font-size: 0.875rem !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Animações personalizadas para o formulário de contato */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes pulse-success {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Classes de animação */
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-pulse-success {
+  animation: pulse-success 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Animações de atenção para o botão de enviar */
+@keyframes call-attention {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.3);
+  }
+}
+
+@keyframes subtle-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+/* Efeito de "respiração" que cresce e diminui suavemente */
+@keyframes gentle-breathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px -1px rgb(0 0 0 / 0.15), 0 0 15px rgba(59, 130, 246, 0.2);
+  }
+}
+
+/* Efeito de onda magnética que atrai atenção */
+@keyframes magnetic-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 0 rgba(59, 130, 246, 0);
+  }
+  25% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 8px rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 12px rgba(59, 130, 246, 0.05);
+  }
+  75% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 8px rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Efeito de texto brilhante */
+@keyframes text-shine {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Classes de animação para chamar atenção */
+.animate-call-attention {
+  animation: call-attention 2s ease-in-out infinite;
+}
+
+.animate-gentle-bounce {
+  animation: gentle-bounce 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-subtle-wiggle {
+  animation: subtle-wiggle 0.5s ease-in-out infinite;
+}
+
+.animate-gentle-breathe {
+  animation: gentle-breathe 3s ease-in-out infinite;
+}
+
+.animate-magnetic-pulse {
+  animation: magnetic-pulse 4s ease-in-out infinite;
+}
+
+/* Efeito de texto brilhante para chamar atenção */
+.text-shine {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-shine 2.5s ease-in-out infinite;
+}
+
+/* Efeito de estrelas flutuantes ao redor do botão */
+@keyframes float-star-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-10px, -15px) rotate(180deg);
+  }
+}
+
+@keyframes float-star-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(15px, -10px) rotate(-180deg);
+  }
+}
+
+@keyframes float-star-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  30%, 70% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-5px, 12px) rotate(360deg);
+  }
+}
+
+/* Container para estrelas flutuantes - apenas ao redor, não no meio */
+.floating-stars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-stars::before,
+.floating-stars::after {
+  content: '✨';
+  position: absolute;
+  font-size: 12px;
+  color: rgba(59, 130, 246, 0.7);
+}
+
+.floating-stars::before {
+  top: 20%;
+  left: 10%;
+  animation: float-star-1 4s ease-in-out infinite;
+}
+
+.floating-stars::after {
+  top: 70%;
+  right: 15%;
+  animation: float-star-2 3.5s ease-in-out infinite 0.5s;
+}
+
+/* Efeito de "chamada magnética" - cursor que se aproxima do botão */
+@keyframes magnetic-attraction {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+    filter: brightness(1.1);
+  }
+}
+
+.magnetic-button {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magnetic-button:hover {
+  animation: magnetic-attraction 0.6s ease-in-out infinite;
+}
+
+/* Efeito de gradiente animado no fundo do botão para chamar atenção */
+@keyframes attention-gradient {
+  0%, 100% {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.9) 100%);
+  }
+  25% {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, rgba(59, 130, 246, 0.9) 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 1) 0%, hsl(var(--primary)) 100%);
+  }
+  75% {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
+  }
+}
+
+.animate-attention-gradient {
+  animation: attention-gradient 6s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+/* Efeito de "piscada" sutil para chamar atenção extra */
+@keyframes attention-blink {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.7;
+  }
+}
+
+.animate-attention-blink {
+  animation: attention-blink 8s ease-in-out infinite;
+}
+
+/* Efeito de border animado que percorre o botão */
+@keyframes border-dance {
+  0%, 100% {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+  25% {
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+  50% {
+    border-color: rgba(99, 102, 241, 0.5);
+  }
+  75% {
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+}
+
+.animate-border-dance {
+  border: 2px solid transparent;
+  animation: border-dance 4s ease-in-out infinite;
+}
+
+/* Animação de entrada quando o formulário ganha foco */
+.form-focused .submit-button {
+  animation: call-attention 1s ease-out, pulse-glow 2s ease-in-out infinite 1s;
+}
+
+/* Efeito de hover melhorado para o botão */
+.enhanced-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.enhanced-button:hover::before {
+  width: 100px;
+  height: 100px;
+}
+
+.enhanced-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animação de spotlight melhorada que chama mais atenção */
+@keyframes spotlight {
+  0%, 85%, 100% {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  5% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 4px rgba(59, 130, 246, 0.4),
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.1);
+  }
+  15% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 8px rgba(59, 130, 246, 0.3),
+      0 0 30px rgba(59, 130, 246, 0.2);
+  }
+}
+
+/* Efeito de spotlight com múltiplas ondas */
+@keyframes spotlight-waves {
+  0%, 80%, 100% {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  10% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 6px rgba(59, 130, 246, 0.4);
+  }
+  20% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 12px rgba(59, 130, 246, 0.2),
+      0 0 0 6px rgba(59, 130, 246, 0.1);
+  }
+  30% {
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 0 0 18px rgba(59, 130, 246, 0.1),
+      0 0 0 12px rgba(59, 130, 246, 0.05);
+  }
+}
+
+.animate-spotlight {
+  animation: spotlight 6s ease-in-out infinite;
+}
+
+.animate-spotlight-waves {
+  animation: spotlight-waves 8s ease-in-out infinite;
+}
+
+/* Melhorias para transições suaves */
+.transition-all-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito de foco melhorado para inputs */
+.focus-enhanced:focus-within {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover para botões */
+.button-hover-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-hover-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.button-hover-effect:hover::before {
+  left: 100%;
+}
+
+/* Efeito de loading com shimmer */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Melhorias para modo escuro */
+.dark .shimmer {
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
+/* Efeito de glow para sucesso */
+.success-glow {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.dark .success-glow {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+/* Micro interações para feedback */
+.micro-bounce {
+  animation: micro-bounce 0.3s ease-out;
+}
+
+@keyframes micro-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Efeito de glow para erro */
+.glow-red {
+  box-shadow: 
+    0 0 20px rgba(239, 68, 68, 0.4),
+    0 0 40px rgba(239, 68, 68, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glow-red {
+  box-shadow: 
+    0 0 20px rgba(239, 68, 68, 0.3),
+    0 0 40px rgba(239, 68, 68, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Melhorar animação shake */
+@keyframes shake-intense {
+  0%, 100% { 
+    transform: translateX(0) scale(0.98); 
+  }
+  10%, 30%, 50%, 70%, 90% { 
+    transform: translateX(-4px) scale(0.98); 
+  }
+  20%, 40%, 60%, 80% { 
+    transform: translateX(4px) scale(0.98); 
+  }
+}
+
+.animate-shake {
+  animation: shake-intense 0.6s ease-in-out;
+}
+
+/* Animação de alerta pulsante */
+@keyframes alert-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-alert-pulse {
+  animation: alert-pulse 1s ease-in-out infinite;
+}
+
+/* Efeito de destaque para botão de erro */
+.error-highlight {
+  position: relative;
+}
+
+.error-highlight::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #ef4444, #dc2626, #b91c1c, #ef4444);
+  background-size: 200% 200%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradient-border 2s linear infinite;
+}
+
+@keyframes gradient-border {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Efeito de onda de choque para erro */
+@keyframes shockwave {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.animate-shockwave {
+  animation: shockwave 1s ease-out;
+}
+
+/* Animação de "respiração" para erro */
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(0.98);
+    box-shadow: 
+      0 0 20px rgba(239, 68, 68, 0.4),
+      0 0 40px rgba(239, 68, 68, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 
+      0 0 30px rgba(239, 68, 68, 0.6),
+      0 0 60px rgba(239, 68, 68, 0.3);
+  }
+}
+
+.animate-breathing {
+  animation: breathing 2s ease-in-out infinite;
+}
+
+/* Efeito de "emergency flash" */
+@keyframes emergency-flash {
+  0%, 100% { 
+    background: linear-gradient(to right, #ef4444, #dc2626, #b91c1c);
+  }
+  25% { 
+    background: linear-gradient(to right, #fbbf24, #f59e0b, #d97706);
+  }
+  50% { 
+    background: linear-gradient(to right, #ef4444, #dc2626, #b91c1c);
+  }
+  75% { 
+    background: linear-gradient(to right, #fbbf24, #f59e0b, #d97706);
+  }
+}
+
+.animate-emergency-flash {
+  animation: emergency-flash 1s ease-in-out 3;
+  background-size: 200% 200%;
+}
+
+/* Efeito de ondas concêntricas */
+.error-ripples::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgba(239, 68, 68, 0.5);
+  border-radius: inherit;
+  animation: ripple-out 2s infinite;
+}
+
+.error-ripples::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: inherit;
+  animation: ripple-out 2s infinite 0.5s;
+}
+
+@keyframes ripple-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}

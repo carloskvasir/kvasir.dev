@@ -25,6 +25,21 @@ export function Header() {
     setMobileMenuOpen(false)
   }
 
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (pathname === "/") {
+      // Se estamos na home, scroll para a seção
+      const contactSection = document.getElementById("contato")
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      // Se não estamos na home, navega para home e depois scroll
+      window.location.href = "/#contato"
+    }
+    setMobileMenuOpen(false)
+  }
+
   const isActive = (path: string) => {
     if (path === "/") {
       return pathname === "/"
@@ -84,6 +99,13 @@ export function Header() {
               >
                 Posts
               </Link>
+              <a
+                href="#contato"
+                onClick={handleContactClick}
+                className={getLinkClasses("/contato")}
+              >
+                Contato
+              </a>
             </nav>
 
             {/* Theme Toggle */}
@@ -148,6 +170,13 @@ export function Header() {
               >
                 Posts
               </Link>
+              <a
+                href="#contato"
+                onClick={handleContactClick}
+                className={getMobileLinkClasses("/contato")}
+              >
+                Contato
+              </a>
             </div>
           </div>
         )}
