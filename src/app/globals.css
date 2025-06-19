@@ -116,8 +116,111 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  /* Smooth theme transitions with advanced easing */
+  html, body {
+    transition: 
+      background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  /* Apply smooth transitions to common elements that change with theme */
+  *:not(.no-transition) {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, backdrop-filter;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  /* Exclude elements that shouldn't transition (like animations, transforms, etc.) */
+  *[style*="transform"], 
+  *[style*="translate"], 
+  *[style*="rotate"],
+  *[style*="scale"],
+  [class*="animate-"],
+  .transition-transform,
+  .transition-all {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, backdrop-filter;
+  }
+  
+  /* Disable transitions during page load to prevent flash */
+  .preload *,
+  .preload *::before,
+  .preload *::after {
+    transition: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* Enhanced theme transitions for specific components */
+@layer components {
+  /* Cards and containers */
+  .card, 
+  [data-component="card"],
+  .border {
+    transition: 
+      background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      border-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  /* Buttons and interactive elements */
+  button,
+  .button,
+  [role="button"],
+  a {
+    transition: 
+      background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      border-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  /* Navigation and header elements */
+  nav,
+  header,
+  .nav,
+  .header {
+    transition: 
+      background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      border-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      backdrop-filter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  /* Form elements */
+  input,
+  textarea,
+  select {
+    transition: 
+      background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      border-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      box-shadow 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  /* Icons and SVG elements */
+  svg,
+  .icon {
+    transition: 
+      fill 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      stroke 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  /* Code blocks and pre elements */
+  pre,
+  code,
+  .code {
+    transition: 
+      background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      border-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 }
 
@@ -1059,4 +1162,73 @@
     transform: scale(1.1);
     opacity: 0;
   }
+}
+
+/* Advanced easing functions for theme transitions */
+@layer base {
+  :root {
+    /* Custom easing curves */
+    --ease-back-in-out: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-bounce: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+    /* Animation durations */
+    --duration-slow: 0.7s;
+    --duration-medium: 0.5s;
+    --duration-fast: 0.3s;
+  }
+  
+  /* Special elastic transition for important elements */
+  .theme-transition-elastic {
+    transition: 
+      background-color var(--duration-medium) var(--ease-elastic),
+      border-color var(--duration-medium) var(--ease-elastic),
+      color var(--duration-medium) var(--ease-elastic);
+  }
+  
+  /* Exponential easing for smooth but dramatic effect */
+  .theme-transition-expo {
+    transition: 
+      background-color var(--duration-slow) var(--ease-expo),
+      border-color var(--duration-slow) var(--ease-expo),
+      color var(--duration-slow) var(--ease-expo);
+  }
+  
+  /* Circular easing for very smooth transitions */
+  .theme-transition-smooth {
+    transition: 
+      background-color var(--duration-medium) var(--ease-circ),
+      border-color var(--duration-medium) var(--ease-circ),
+      color var(--duration-medium) var(--ease-circ);
+  }
+}
+
+/* Complex bounce transition for theme changes */
+@keyframes theme-bounce-in {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.02); }
+  30% { transform: scale(0.98); }
+  50% { transform: scale(1.01); }
+  70% { transform: scale(0.995); }
+  100% { transform: scale(1); }
+}
+
+@keyframes theme-elastic-scale {
+  0% { transform: scale(1) rotate(0deg); }
+  10% { transform: scale(1.05) rotate(0.5deg); }
+  25% { transform: scale(0.95) rotate(-0.5deg); }
+  50% { transform: scale(1.02) rotate(0.2deg); }
+  75% { transform: scale(0.98) rotate(-0.1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Apply complex animations to specific elements during theme change */
+.theme-change-trigger {
+  animation: theme-bounce-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-change-elastic {
+  animation: theme-elastic-scale 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }

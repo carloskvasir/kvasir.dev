@@ -74,6 +74,32 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
         <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Add preload class to disable transitions during initial load
+                document.documentElement.classList.add('preload');
+                
+                // Remove preload class after a short delay to enable smooth transitions
+                const removePreload = () => {
+                  setTimeout(() => {
+                    document.documentElement.classList.remove('preload');
+                  }, 100);
+                };
+                
+                // Use multiple event listeners to ensure transitions are enabled
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', removePreload);
+                } else {
+                  removePreload();
+                }
+                
+                window.addEventListener('load', removePreload);
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -82,7 +108,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>
