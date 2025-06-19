@@ -79,10 +79,11 @@ export function Header() {
           {/* Right Side - Desktop Navigation + Theme Toggle + Mobile Menu */}
           <div className="flex items-center space-x-6">
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-6" role="navigation" aria-label="Navegação principal">
               <Link
                 href="/"
                 className={getLinkClasses("/")}
+                title="Página inicial - Carlos Kvasir Desenvolvedor Rails"
               >
                 Home
               </Link>
@@ -90,12 +91,14 @@ export function Header() {
                 href="#projetos"
                 onClick={handleProjectsClick}
                 className={getLinkClasses("/projetos")}
+                title="Portfolio de projetos desenvolvidos em Rails e React"
               >
                 Projetos
               </a>
               <Link
                 href="/notes"
                 className={getLinkClasses("/notes")}
+                title="Blog com artigos sobre desenvolvimento Rails e web"
               >
                 Posts
               </Link>
@@ -103,10 +106,32 @@ export function Header() {
                 href="#contato"
                 onClick={handleContactClick}
                 className={getLinkClasses("/contato")}
+                title="Entre em contato para projetos de desenvolvimento"
               >
                 Contato
               </a>
             </nav>
+
+            {/* RSS Button - discreto */}
+            <a
+              href="/rss.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center justify-center w-9 h-9 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+              aria-label="RSS Feed"
+              title="Subscribe ao RSS Feed"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M4 11a9 9 0 0 1 9 9" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M4 4a16 16 0 0 1 16 16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="5" cy="19" r="1" fill="currentColor" />
+              </svg>
+            </a>
 
             {/* Theme Toggle */}
             <ThemeToggle />
@@ -147,12 +172,13 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t bg-background">
+          <nav className="md:hidden border-t bg-background" role="navigation" aria-label="Menu de navegação mobile">
             <div className="px-4 py-2 space-y-1">
               <Link
                 href="/"
                 className={getMobileLinkClasses("/")}
                 onClick={() => setMobileMenuOpen(false)}
+                title="Página inicial - Carlos Kvasir Desenvolvedor Rails"
               >
                 Home
               </Link>
@@ -160,6 +186,7 @@ export function Header() {
                 href="#projetos"
                 onClick={handleProjectsClick}
                 className={getMobileLinkClasses("/projetos")}
+                title="Portfolio de projetos desenvolvidos em Rails e React"
               >
                 Projetos
               </a>
@@ -167,6 +194,7 @@ export function Header() {
                 href="/notes"
                 className={getMobileLinkClasses("/notes")}
                 onClick={() => setMobileMenuOpen(false)}
+                title="Blog com artigos sobre desenvolvimento Rails e web"
               >
                 Posts
               </Link>
@@ -174,11 +202,32 @@ export function Header() {
                 href="#contato"
                 onClick={handleContactClick}
                 className={getMobileLinkClasses("/contato")}
+                title="Entre em contato para projetos de desenvolvimento"
               >
                 Contato
               </a>
+              <a
+                href="/rss.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                title="Subscribe ao RSS Feed"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M4 11a9 9 0 0 1 9 9" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M4 4a16 16 0 0 1 16 16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="5" cy="19" r="1" fill="currentColor" />
+                </svg>
+                RSS Feed
+              </a>
             </div>
-          </div>
+          </nav>
         )}
       </div>
     </header>

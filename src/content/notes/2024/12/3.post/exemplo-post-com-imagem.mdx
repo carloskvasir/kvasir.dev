@@ -1,50 +1,244 @@
 ---
-title: "Exemplo de Post com Imagem"
+title: "Como Organizar Imagens em Posts MDX: Guia Completo de Estrutura de Pastas"
+slug: "exemplo-post-com-imagem"
 date: "2024-12-19"
 lastModified: "2024-12-19"
-description: "Um exemplo simples de como adicionar imagens aos posts usando MDX e organizando arquivos de forma eficiente"
-excerpt: "Aprenda como adicionar imagens aos seus posts MDX de forma organizada, mantendo todos os arquivos relacionados ao post na mesma pasta."
-tags: ["exemplo", "tutorial", "imagens", "mdx", "organização"]
-keywords: ["imagens mdx", "organização posts", "tutorial imagens", "mdx images", "estrutura pastas"]
+publishedAt: "2024-12-19T10:00:00.000Z"
+updatedAt: "2024-12-19T10:00:00.000Z"
+
+# SEO Meta Information
+description: "Guia completo sobre organização de imagens em posts MDX: estrutura de pastas, boas práticas, versionamento com Git e otimização para blogs técnicos."
+metaDescription: "Aprenda a organizar imagens em posts MDX de forma profissional. Estrutura de pastas, versionamento Git, caminhos relativos e boas práticas para blogs técnicos."
+excerpt: "Tutorial prático sobre organização de imagens em posts MDX. Aprenda estrutura de pastas, caminhos relativos, versionamento e boas práticas para manter seu blog organizado."
+
+# Keywords and Tags
+tags: ["mdx", "tutorial", "imagens", "organização", "blog", "markdown", "estrutura", "boas práticas", "versionamento", "git"]
+keywords: ["imagens mdx", "organização posts blog", "tutorial imagens markdown", "mdx images", "estrutura pastas blog", "caminhos relativos", "versionamento imagens", "blog técnico organização", "markdown images", "pasta estrutura"]
+focusKeyword: "imagens mdx"
+relatedKeywords: ["organização blog", "estrutura pastas mdx", "markdown imagens", "blog técnico"]
+
+# Content Classification
 author: "Carlos Kvasir"
+authorUrl: "https://kvasir.dev"
 category: "Tutorial"
+subcategory: "Organização"
+topics: ["MDX", "Blog", "Organização", "Estrutura de Arquivos", "Markdown"]
+difficulty: "Iniciante"
+target_audience: ["Desenvolvedores", "Blogueiros Técnicos", "Content Creators", "Escritores Técnicos"]
+
+# Content Metrics
+readingTime: "4 min"
+wordCount: 800
+contentType: "tutorial"
+format: "guide"
 featured: false
+trending: false
+priority: "medium"
+
+# SEO Technical
 language: "pt-BR"
+locale: "pt_BR"
 canonicalUrl: "https://kvasir.dev/notes/2024/12/exemplo-post-com-imagem"
-ogImage: "/profile.jpg"
+alternateUrls:
+  - hreflang: "pt-BR"
+    href: "https://kvasir.dev/notes/2024/12/exemplo-post-com-imagem"
+
+# Open Graph
+ogTitle: "Como Organizar Imagens em Posts MDX: Guia Completo"
+ogDescription: "Tutorial prático: organize imagens em posts MDX com estrutura de pastas profissional, versionamento Git e boas práticas para blogs técnicos."
+ogImage: "/images/mdx-images-tutorial.jpg"
+ogImageAlt: "Tutorial de Organização de Imagens em Posts MDX"
+ogType: "article"
+ogSiteName: "Kvasir.dev"
+ogLocale: "pt_BR"
+
+# Twitter Card
+twitterCard: "summary_large_image"
+twitterTitle: "Como Organizar Imagens em Posts MDX: Guia Completo"
+twitterDescription: "Tutorial prático sobre organização de imagens em posts MDX. Estrutura de pastas, versionamento e boas práticas."
+twitterImage: "/images/mdx-images-tutorial.jpg"
+twitterImageAlt: "Tutorial de Organização de Imagens em Posts MDX"
+twitterSite: "@kvasir_dev"
+twitterCreator: "@kvasir_dev"
+
+# Schema.org
+schemaType: "TechArticle"
+datePublished: "2024-12-19T10:00:00.000Z"
+dateModified: "2024-12-19T10:00:00.000Z"
+headline: "Como Organizar Imagens em Posts MDX: Guia Completo de Estrutura de Pastas"
+articleSection: "Tutorial"
+wordcount: 800
+
+# Internal Classification
+series: "MDX Essentials"
+relatedPosts: ["ambiente-desenvolvimento-rails", "bem-vindo-as-notes"]
+crossLinks: ["tutorial", "organização", "blog-setup"]
+
+# Content Quality Metrics
+performance:
+  loadTime: "fast"
+  imageOptimization: true
+  mobileOptimized: true
+
+accessibility:
+  altTexts: true
+  headingStructure: true
+  colorContrast: "high"
+
+socialProof:
+  shares: 0
+  comments: 0
+  engagement: "new"
+
+contentQuality:
+  originalContent: true
+  factChecked: true
+  sources: ["MDX Documentation", "Best Practices"]
+  lastReview: "2024-12-19"
+
+technicalSEO:
+  structured_data: true
+  meta_tags: true
+  internal_links: true
+  external_links: false
+  image_alt_tags: true
+  heading_hierarchy: true
 ---
 
-# Exemplo de Post com Imagem
+Organizar imagens em posts MDX pode ser um desafio, especialmente quando você tem muitos posts e quer manter tudo bem estruturado. Neste guia, vou mostrar a melhor abordagem para organizar suas imagens de forma profissional.
 
-Este é um exemplo simples de como adicionar imagens aos seus posts.
+## Por que a Organização de Imagens é Importante?
 
-## Como Funciona
+Uma boa organização de imagens traz benefícios significativos:
 
-As imagens ficam na mesma pasta que o arquivo MDX do post:
+- **Manutenibilidade**: Facilita encontrar e editar imagens
+- **Portabilidade**: Permite mover posts facilmente
+- **Versionamento**: Git rastreia mudanças em imagens junto com o conteúdo  
+- **Performance**: Otimização de carregamento e SEO
+- **Escalabilidade**: Funciona mesmo com centenas de posts
+
+## Estrutura Recomendada
+
+A estrutura que funciona melhor é manter as imagens na mesma pasta do post:
 
 ![Estrutura de pastas](./folder-structure.png.placeholder)
 
-## Vantagens desta Abordagem
+### Vantagens desta Abordagem
 
-- **Organização**: Tudo relacionado ao post fica junto
-- **Portabilidade**: Fácil de mover ou fazer backup
-- **Simplicidade**: Caminhos relativos são mais fáceis de gerenciar
-- **Versionamento**: Git rastreia imagens junto com o conteúdo
+| Aspecto | Benefício | Impacto |
+|---------|-----------|---------|
+| **Organização** | Tudo relacionado ao post fica junto | Alto |
+| **Portabilidade** | Fácil de mover ou fazer backup | Alto |
+| **Simplicidade** | Caminhos relativos são mais fáceis | Médio |
+| **Versionamento** | Git rastreia imagens junto com conteúdo | Alto |
+| **Colaboração** | Outros desenvolvedores encontram facilmente | Alto |
 
-## Exemplo de Uso
+## Como Implementar
 
-Basta usar a sintaxe padrão do Markdown com caminho relativo:
+### 1. Criando a Estrutura
+
+```bash
+mkdir src/content/notes/2024/12/meu-post/
+cd src/content/notes/2024/12/meu-post/
+touch page.mdx
+# Adicione suas imagens aqui
+```
+
+### 2. Referenciando Imagens
+
+Use sempre caminhos relativos no seu MDX:
 
 ```markdown
 ![Descrição da imagem](./nome-da-imagem.png)
 ```
 
-## Screenshot de Exemplo
+### 3. Convenções de Nomenclatura
+
+- Use nomes descritivos: `database-schema.png` em vez de `img1.png`
+- Prefixe com números para ordem: `01-setup.png`, `02-config.png`
+- Use kebab-case: `user-dashboard.png`
+
+## Boas Práticas para Imagens
+
+### Otimização Técnica
+
+1. **Formato adequado**:
+   - PNG para screenshots e diagramas
+   - JPG para fotos
+   - WebP quando possível para performance
+
+2. **Tamanho e resolução**:
+   - Máximo 1920px de largura
+   - Compressão otimizada
+   - Considere versões responsivas
+
+3. **Alt text descritivo**:
+   ```markdown
+   ![Dashboard mostrando métricas de performance com gráficos de CPU e memória](./dashboard-metricas.png)
+   ```
+
+### Exemplo Prático
 
 ![Exemplo de screenshot](./example-screenshot.png.placeholder)
 
-Esta imagem seria renderizada normalmente se fosse um arquivo real.
+Esta imagem demonstra como uma captura de tela bem organizada melhora a experiência do leitor.
+
+## Integração com Git
+
+### .gitignore Estratégico
+
+```gitignore
+# Ignore placeholders durante desenvolvimento
+*.placeholder
+
+# Mantenha imagens reais
+!*.png
+!*.jpg
+!*.jpeg
+!*.webp
+```
+
+### Workflow de Versionamento
+
+1. Crie o post com placeholders
+2. Adicione imagens reais antes de publicar
+3. Faça commit de tudo junto
+4. Use Git LFS para imagens grandes se necessário
+
+## Ferramentas Úteis
+
+### Automatização
+
+- **Scripts de otimização**: Compressão automática
+- **Geração de thumbnails**: Para listagens
+- **Conversão WebP**: Performance melhorada
+
+### Plugins Recomendados
+
+- `next-optimized-images` para Next.js
+- `gatsby-plugin-image` para Gatsby
+- `@next/image` nativo do Next.js
+
+## Checklist de Implementação
+
+- [ ] Estrutura de pastas criada
+- [ ] Convenção de nomenclatura definida  
+- [ ] Alt texts adicionados
+- [ ] Imagens otimizadas
+- [ ] Caminhos relativos testados
+- [ ] Git configurado adequadamente
 
 ## Conclusão
 
-Este sistema torna muito mais fácil organizar e gerenciar imagens nos posts. Tudo fica organizado e fácil de encontrar!
+Esta abordagem de organização torna o gerenciamento de imagens muito mais eficiente. Com uma estrutura bem definida, você pode:
+
+- Escalar seu blog sem perder organização
+- Colaborar efetivamente com outros autores
+- Manter performance otimizada
+- Facilitar manutenção futura
+
+**Próximos passos**: Implemente esta estrutura em seus próximos posts e considere migrar posts existentes gradualmente.
+
+---
+
+*Tem dúvidas sobre organização de imagens em MDX? [Entre em contato](/contato) e vamos conversar!*

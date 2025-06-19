@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kvasir.dev"),
   alternates: {
     canonical: "/",
+    types: {
+      'application/rss+xml': [
+        { url: '/rss.xml', title: 'Kvasir.dev RSS Feed' }
+      ]
+    }
   },
   openGraph: {
     type: "website",
@@ -61,6 +66,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "google-site-verification": "", // adicione se tiver
+    "msvalidate.01": "", // adicione se tiver  
+    // Meta tags para sitelinks
+    "sitelinks-searchbox-target": "https://kvasir.dev/notes?q={searchTerms}",
+    "navigation-elements": "Home,Projetos,Posts,Contato"
+  },
 };
 
 export default function RootLayout({
@@ -74,6 +86,13 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
         <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen" />
+        
+        {/* Sitelinks para Google Search */}
+        <link rel="alternate" href="https://kvasir.dev" hrefLang="pt-br" title="Home - Carlos Kvasir Desenvolvedor Rails" />
+        <link rel="alternate" href="https://kvasir.dev/#projetos" hrefLang="pt-br" title="Projetos - Portfolio Rails e React" />
+        <link rel="alternate" href="https://kvasir.dev/notes" hrefLang="pt-br" title="Posts - Blog sobre Desenvolvimento" />
+        <link rel="alternate" href="https://kvasir.dev/#contato" hrefLang="pt-br" title="Contato - Desenvolvedor Rails" />
+        
         <script
           dangerouslySetInnerHTML={{
             __html: `

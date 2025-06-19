@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
+    <channel>
+        <title><![CDATA[Kvasir.dev - Ruby on Rails & Web Development]]></title>
+        <description><![CDATA[Blog especializado em Ruby on Rails, desenvolvimento web e tecnologias modernas. Tutoriais práticos, dicas e experiências reais de desenvolvimento.]]></description>
+        <link>https://kvasir.dev</link>
+        <generator>Next.js Static RSS Generator</generator>
+        <lastBuildDate>Thu, 19 Jun 2025 18:41:21 GMT</lastBuildDate>
+        <atom:link href="https://kvasir.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Thu, 19 Jun 2025 18:41:21 GMT</pubDate>
+        <copyright><![CDATA[Copyright 2025 Carlos Kvasir]]></copyright>
+        <language><![CDATA[pt-BR]]></language>
+        <managingEditor><![CDATA[carlos@kvasir.dev (Carlos Kvasir)]]></managingEditor>
+        <webMaster><![CDATA[carlos@kvasir.dev (Carlos Kvasir)]]></webMaster>
+        <ttl>60</ttl>
+        <category><![CDATA[Technology]]></category>
+        <category><![CDATA[Programming]]></category>
+        <category><![CDATA[Ruby on Rails]]></category>
+        <category><![CDATA[Web Development]]></category>
+        <category><![CDATA[JavaScript]]></category>
+        <category><![CDATA[React]]></category>
+        <atom:link href="https://kvasir.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <sy:updatePeriod>weekly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+        <item>
+            <title><![CDATA[Por que Ruby on Rails é a Melhor Escolha para Desenvolvimento Web em 2025]]></title>
+            <description><![CDATA[Ruby on Rails continua sendo o melhor framework web em 2025. Descubra por que GitHub, Shopify e Airbnb escolheram Rails para escalar globalmente com 3x mais produtividade.]]></description>
+            <link>https://kvasir.dev/notes/2024/12/por-que-ruby-on-rails-e-a-melhor-escolha</link>
+            <guid isPermaLink="false">https://kvasir.dev/notes/2024/12/por-que-ruby-on-rails-e-a-melhor-escolha</guid>
+            <category><![CDATA[ruby on rails]]></category>
+            <category><![CDATA[web development]]></category>
+            <category><![CDATA[framework]]></category>
+            <category><![CDATA[backend]]></category>
+            <category><![CDATA[startup]]></category>
+            <category><![CDATA[produtividade]]></category>
+            <category><![CDATA[rails 7]]></category>
+            <category><![CDATA[desenvolvimento]]></category>
+            <category><![CDATA[tecnologia]]></category>
+            <category><![CDATA[Ruby on Rails]]></category>
+            <category><![CDATA[Web Development]]></category>
+            <category><![CDATA[Backend]]></category>
+            <category><![CDATA[Frameworks]]></category>
+            <category><![CDATA[Produtividade]]></category>
+            <category><![CDATA[Desenvolvimento]]></category>
+            <dc:creator><![CDATA[https://kvasir.dev (Carlos Kvasir)]]></dc:creator>
+            <pubDate>Thu, 19 Dec 2024 10:00:00 GMT</pubDate>
+            <enclosure url="https://kvasir.dev/images/rails-2025-guide.jpg" length="0" type="image/jpeg"/>
+            <content:encoded><![CDATA[
+              <p>Rails continua dominando o desenvolvimento web em 2025. Descubra por que empresas como GitHub (50M repos), Shopify (US$ 160B GMV) e Basecamp escolhem Rails para escalar globalmente.</p>
+              <img src="https://kvasir.dev/images/rails-2025-guide.jpg" alt="Ruby on Rails 2025 - Guia Completo de Produtividade e Cases de Sucesso" style="max-width: 100%; height: auto;" />
+              <p><strong>Tempo de leitura:</strong> 8 minutos</p>
+              <p><strong>Dificuldade:</strong> Intermediário</p>
+              <p><strong>Palavras-chave:</strong> ruby on rails 2025, melhor framework web, rails vs react, rails vs django, rails produtividade, startup framework, escalabilidade rails, github shopify rails, desenvolvimento web, backend framework, produtividade desenvolvimento</p>
+              <p><a href="https://kvasir.dev/notes/2024/12/por-que-ruby-on-rails-e-a-melhor-escolha">Leia o artigo completo →</a></p>
+            ]]></content:encoded>
+            <dc:creator>Carlos Kvasir</dc:creator>
+            <dc:subject>ruby on rails 2025, melhor framework web, rails vs react, rails vs django, rails produtividade, startup framework, escalabilidade rails, github shopify rails, desenvolvimento web, backend framework, produtividade desenvolvimento</dc:subject>
+            <dc:type>guide</dc:type>
+            <dc:format>text/html</dc:format>
+            <dc:language>pt-BR</dc:language>
+            <readingTime>8 min</readingTime>
+            <difficulty>Intermediário</difficulty>
+            <contentType>guide</contentType>
+            <audience>Desenvolvedores, CTOs, Startups, Empresas de Tecnologia</audience>
+            <series>Rails Essentials</series>
+        </item>
+        <item>
+            <title><![CDATA[Configurando um Ambiente de Desenvolvimento Rails Perfeito]]></title>
+            <description><![CDATA[Configure um ambiente Rails profissional: Docker, PostgreSQL, Redis, VSCode, ferramentas de debug e deploy. Guia completo para desenvolvedores.]]></description>
+            <link>https://kvasir.dev/notes/2024/12/ambiente-desenvolvimento-rails</link>
+            <guid isPermaLink="false">https://kvasir.dev/notes/2024/12/ambiente-desenvolvimento-rails</guid>
+            <category><![CDATA[ruby on rails]]></category>
+            <category><![CDATA[ambiente desenvolvimento]]></category>
+            <category><![CDATA[docker]]></category>
+            <category><![CDATA[postgresql]]></category>
+            <category><![CDATA[redis]]></category>
+            <category><![CDATA[vscode]]></category>
+            <category><![CDATA[setup]]></category>
+            <category><![CDATA[ferramentas]]></category>
+            <category><![CDATA[Ruby on Rails]]></category>
+            <category><![CDATA[DevOps]]></category>
+            <category><![CDATA[Ferramentas]]></category>
+            <category><![CDATA[Produtividade]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[https://kvasir.dev (Carlos Kvasir)]]></dc:creator>
+            <pubDate>Thu, 19 Dec 2024 10:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+              <p>Configure seu ambiente Rails como um profissional: Docker, PostgreSQL, Redis, ferramentas de debug e muito mais para máxima produtividade.</p>
+              
+              <p><strong>Tempo de leitura:</strong> 12 minutos</p>
+              <p><strong>Dificuldade:</strong> Iniciante</p>
+              <p><strong>Palavras-chave:</strong> rails setup, ambiente desenvolvimento rails, docker rails, postgresql rails, redis rails, vscode rails, rails tools</p>
+              <p><a href="https://kvasir.dev/notes/2024/12/ambiente-desenvolvimento-rails">Leia o artigo completo →</a></p>
+            ]]></content:encoded>
+            <dc:creator>Carlos Kvasir</dc:creator>
+            <dc:subject>rails setup, ambiente desenvolvimento rails, docker rails, postgresql rails, redis rails, vscode rails, rails tools</dc:subject>
+            <dc:type>tutorial</dc:type>
+            <dc:format>text/html</dc:format>
+            <dc:language>pt-BR</dc:language>
+            <readingTime>12 min</readingTime>
+            <difficulty>Iniciante</difficulty>
+            <contentType>tutorial</contentType>
+            <audience>Desenvolvedores, Iniciantes Rails</audience>
+            <series>Rails Essentials</series>
+        </item>
+        <item>
+            <title><![CDATA[Bem-vindo às minhas notes]]></title>
+            <description><![CDATA[Bem-vindo ao blog Kvasir.dev! Artigos sobre Ruby on Rails, desenvolvimento web moderno, tutoriais práticos e experiências reais de desenvolvimento.]]></description>
+            <link>https://kvasir.dev/notes/2024/12/bem-vindo-as-notes</link>
+            <guid isPermaLink="false">https://kvasir.dev/notes/2024/12/bem-vindo-as-notes</guid>
+            <category><![CDATA[blog]]></category>
+            <category><![CDATA[ruby on rails]]></category>
+            <category><![CDATA[desenvolvimento web]]></category>
+            <category><![CDATA[bem-vindo]]></category>
+            <category><![CDATA[apresentação]]></category>
+            <category><![CDATA[Blog]]></category>
+            <category><![CDATA[Apresentação]]></category>
+            <category><![CDATA[Ruby on Rails]]></category>
+            <category><![CDATA[Blog]]></category>
+            <dc:creator><![CDATA[https://kvasir.dev (Carlos Kvasir)]]></dc:creator>
+            <pubDate>Thu, 19 Dec 2024 10:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+              <p>Primeiro post oficial! Descubra o que você vai encontrar neste blog sobre Rails, desenvolvimento web e tecnologias modernas.</p>
+              
+              <p><strong>Tempo de leitura:</strong> 3 minutos</p>
+              <p><strong>Dificuldade:</strong> Iniciante</p>
+              <p><strong>Palavras-chave:</strong> blog rails, kvasir dev, carlos kvasir, desenvolvimento web, ruby on rails blog</p>
+              <p><a href="https://kvasir.dev/notes/2024/12/bem-vindo-as-notes">Leia o artigo completo →</a></p>
+            ]]></content:encoded>
+            <dc:creator>Carlos Kvasir</dc:creator>
+            <dc:subject>blog rails, kvasir dev, carlos kvasir, desenvolvimento web, ruby on rails blog</dc:subject>
+            <dc:type>article</dc:type>
+            <dc:format>text/html</dc:format>
+            <dc:language>pt-BR</dc:language>
+            <readingTime>3 min</readingTime>
+            <difficulty>Iniciante</difficulty>
+            <contentType>article</contentType>
+            <audience>Desenvolvedores, Interessados em Rails</audience>
+        </item>
+        <item>
+            <title><![CDATA[Instalando mise e Ruby no Linux Mint/Ubuntu]]></title>
+            <description><![CDATA[Instale mise e Ruby no Ubuntu/Linux Mint: tutorial completo com gerenciamento de versões, configuração e melhores práticas para desenvolvimento Rails.]]></description>
+            <link>https://kvasir.dev/notes/2024/12/instalando-mise-ruby-ubuntu</link>
+            <guid isPermaLink="false">https://kvasir.dev/notes/2024/12/instalando-mise-ruby-ubuntu</guid>
+            <category><![CDATA[ruby]]></category>
+            <category><![CDATA[mise]]></category>
+            <category><![CDATA[ubuntu]]></category>
+            <category><![CDATA[linux mint]]></category>
+            <category><![CDATA[instalação]]></category>
+            <category><![CDATA[setup]]></category>
+            <category><![CDATA[rbenv]]></category>
+            <category><![CDATA[version manager]]></category>
+            <category><![CDATA[Ruby]]></category>
+            <category><![CDATA[Setup]]></category>
+            <category><![CDATA[Linux]]></category>
+            <category><![CDATA[Ferramentas]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[https://kvasir.dev (Carlos Kvasir)]]></dc:creator>
+            <pubDate>Thu, 19 Dec 2024 10:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+              <p>Aprenda a instalar e configurar mise + Ruby no Ubuntu/Linux Mint. Gerenciamento moderno de versões para desenvolvimento Rails.</p>
+              
+              <p><strong>Tempo de leitura:</strong> 6 minutos</p>
+              <p><strong>Dificuldade:</strong> Iniciante</p>
+              <p><strong>Palavras-chave:</strong> mise ruby, instalar ruby ubuntu, ruby linux mint, mise vs rbenv, ruby version manager, setup ruby linux</p>
+              <p><a href="https://kvasir.dev/notes/2024/12/instalando-mise-ruby-ubuntu">Leia o artigo completo →</a></p>
+            ]]></content:encoded>
+            <dc:creator>Carlos Kvasir</dc:creator>
+            <dc:subject>mise ruby, instalar ruby ubuntu, ruby linux mint, mise vs rbenv, ruby version manager, setup ruby linux</dc:subject>
+            <dc:type>tutorial</dc:type>
+            <dc:format>text/html</dc:format>
+            <dc:language>pt-BR</dc:language>
+            <readingTime>6 min</readingTime>
+            <difficulty>Iniciante</difficulty>
+            <contentType>tutorial</contentType>
+            <audience>Desenvolvedores, Iniciantes Ruby</audience>
+            <series>Ruby Setup</series>
+        </item>
+        <item>
+            <title><![CDATA[Como Organizar Imagens em Posts MDX: Guia Completo de Estrutura de Pastas]]></title>
+            <description><![CDATA[Aprenda a organizar imagens em posts MDX de forma profissional. Estrutura de pastas, versionamento Git, caminhos relativos e boas práticas para blogs técnicos.]]></description>
+            <link>https://kvasir.dev/notes/2024/12/exemplo-post-com-imagem</link>
+            <guid isPermaLink="false">https://kvasir.dev/notes/2024/12/exemplo-post-com-imagem</guid>
+            <category><![CDATA[mdx]]></category>
+            <category><![CDATA[tutorial]]></category>
+            <category><![CDATA[imagens]]></category>
+            <category><![CDATA[organização]]></category>
+            <category><![CDATA[blog]]></category>
+            <category><![CDATA[markdown]]></category>
+            <category><![CDATA[estrutura]]></category>
+            <category><![CDATA[boas práticas]]></category>
+            <category><![CDATA[versionamento]]></category>
+            <category><![CDATA[git]]></category>
+            <category><![CDATA[MDX]]></category>
+            <category><![CDATA[Blog]]></category>
+            <category><![CDATA[Organização]]></category>
+            <category><![CDATA[Estrutura de Arquivos]]></category>
+            <category><![CDATA[Markdown]]></category>
+            <category><![CDATA[Tutorial]]></category>
+            <dc:creator><![CDATA[https://kvasir.dev (Carlos Kvasir)]]></dc:creator>
+            <pubDate>Thu, 19 Dec 2024 10:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+              <p>Tutorial prático sobre organização de imagens em posts MDX. Aprenda estrutura de pastas, caminhos relativos, versionamento e boas práticas para manter seu blog organizado.</p>
+              
+              <p><strong>Tempo de leitura:</strong> 4 minutos</p>
+              <p><strong>Dificuldade:</strong> Iniciante</p>
+              <p><strong>Palavras-chave:</strong> imagens mdx, organização posts blog, tutorial imagens markdown, mdx images, estrutura pastas blog, caminhos relativos, versionamento imagens, blog técnico organização, markdown images, pasta estrutura</p>
+              <p><a href="https://kvasir.dev/notes/2024/12/exemplo-post-com-imagem">Leia o artigo completo →</a></p>
+            ]]></content:encoded>
+            <dc:creator>Carlos Kvasir</dc:creator>
+            <dc:subject>imagens mdx, organização posts blog, tutorial imagens markdown, mdx images, estrutura pastas blog, caminhos relativos, versionamento imagens, blog técnico organização, markdown images, pasta estrutura</dc:subject>
+            <dc:type>tutorial</dc:type>
+            <dc:format>text/html</dc:format>
+            <dc:language>pt-BR</dc:language>
+            <readingTime>4 min</readingTime>
+            <difficulty>Iniciante</difficulty>
+            <contentType>tutorial</contentType>
+            <audience>Desenvolvedores, Blogueiros Técnicos, Content Creators, Escritores Técnicos</audience>
+            <series>MDX Essentials</series>
+        </item>
+    </channel>
+</rss>

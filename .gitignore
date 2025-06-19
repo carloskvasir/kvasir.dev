@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Task reference files
 task.md
+
+# RSS feed é gerado automaticamente no build - não ignorar
+# public/rss.xml

@@ -91,7 +91,8 @@ export interface Note {
   year: string;
   month: string;
   content?: string;
-  // Campos SEO adicionais
+
+  // Campos SEO básicos
   excerpt?: string;
   keywords?: string[];
   author?: string;
@@ -102,6 +103,110 @@ export interface Note {
   ogImage?: string;
   featured?: boolean;
   language?: string;
+
+  // Campos SEO avançados
+  metaDescription?: string;
+  focusKeyword?: string;
+  relatedKeywords?: string[];
+  authorUrl?: string;
+  subcategory?: string;
+  topics?: string[];
+  difficulty?: string;
+  target_audience?: string[];
+  wordCount?: number;
+  contentType?: string;
+  format?: string;
+  trending?: boolean;
+  priority?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  locale?: string;
+  alternateUrls?: Array<{ hreflang: string; href: string }>;
+
+  // Open Graph
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImageAlt?: string;
+  ogType?: string;
+  ogSiteName?: string;
+  ogLocale?: string;
+
+  // Twitter Card
+  twitterCard?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  twitterImageAlt?: string;
+  twitterSite?: string;
+  twitterCreator?: string;
+
+  // Schema.org
+  schemaType?: string;
+  datePublished?: string;
+  dateModified?: string;
+  headline?: string;
+  articleSection?: string;
+  wordcount?: number;
+
+  // Classificação interna
+  series?: string;
+  seriesPart?: number;
+  relatedPosts?: string[];
+  crossLinks?: string[];
+
+  // Campos para diferentes tipos de conteúdo
+  isHowTo?: boolean;
+  isCourse?: boolean;
+  isOpinion?: boolean;
+  isEducational?: boolean;
+
+  // Campos específicos para HowTo
+  supplies?: string[];
+  tools?: string[];
+  steps?: Array<{ name: string; text: string }>;
+  duration?: string;
+
+  // FAQ
+  faq?: Array<{ question: string; answer: string }>;
+
+  // Tempo de leitura
+  estimatedReadTime?: number;
+
+  // SEO técnico adicional
+  robots?: string;
+  googlebot?: string;
+  preloadResources?: string;
+
+  // Métricas de qualidade
+  performance?: {
+    loadTime?: string;
+    imageOptimization?: boolean;
+    mobileOptimized?: boolean;
+  };
+  accessibility?: {
+    altTexts?: boolean;
+    headingStructure?: boolean;
+    colorContrast?: string;
+  };
+  socialProof?: {
+    shares?: number;
+    comments?: number;
+    engagement?: string;
+  };
+  contentQuality?: {
+    originalContent?: boolean;
+    factChecked?: boolean;
+    sources?: string[];
+    lastReview?: string;
+  };
+  technicalSEO?: {
+    structured_data?: boolean;
+    meta_tags?: boolean;
+    internal_links?: boolean;
+    external_links?: boolean;
+    image_alt_tags?: boolean;
+    heading_hierarchy?: boolean;
+  };
 }
 
 export interface BreadcrumbItem {

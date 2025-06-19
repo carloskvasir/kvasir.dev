@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:https": "next dev --turbopack --experimental-https --experimental-https-key ./localhost+2-key.pem --experimental-https-cert ./localhost+2.pem",
-    "build": "next build",
-    "export": "next build",
+    "build": "npm run generate:rss && next build",
+    "export": "npm run generate:rss && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:rss": "node scripts/generate-rss.js",
+    "validate:rss": "node scripts/validate-rss.js",
+    "postbuild": "npm run generate:rss && npm run validate:rss"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
@@ -30,6 +33,7 @@
     "rehype-highlight": "^7.0.2",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
+    "rss": "^1.2.2",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
@@ -38,6 +42,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/rss": "^0.0.32",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "tailwindcss": "^4",

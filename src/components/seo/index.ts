@@ -8,6 +8,9 @@ export { BlogPostSEO } from "./blog-post-seo";
 export { HomepageSEO } from "./homepage-seo";
 export { ProjectsSEO } from "./projects-seo";
 
+// Componente SEO universal para posts
+export { UniversalPostSEO } from "./universal-post-seo";
+
 // Schemas estáticos
 export * from "./schemas";
 

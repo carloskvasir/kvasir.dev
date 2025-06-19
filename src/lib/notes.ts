@@ -76,7 +76,8 @@ export interface BlogPost {
   content: string;
   year: string;
   month: string;
-  // Campos SEO adicionais
+
+  // Campos SEO básicos
   excerpt?: string;
   keywords?: string[];
   author?: string;
@@ -87,6 +88,55 @@ export interface BlogPost {
   ogImage?: string;
   featured?: boolean;
   language?: string;
+
+  // Campos SEO avançados
+  metaDescription?: string;
+  focusKeyword?: string;
+  relatedKeywords?: string[];
+  authorUrl?: string;
+  subcategory?: string;
+  topics?: string[];
+  difficulty?: string;
+  target_audience?: string[];
+  wordCount?: number;
+  contentType?: string;
+  format?: string;
+  trending?: boolean;
+  priority?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  locale?: string;
+  alternateUrls?: Array<{ hreflang: string; href: string }>;
+
+  // Open Graph
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImageAlt?: string;
+  ogType?: string;
+  ogSiteName?: string;
+  ogLocale?: string;
+
+  // Twitter Card
+  twitterCard?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  twitterImageAlt?: string;
+  twitterSite?: string;
+  twitterCreator?: string;
+
+  // Schema.org
+  schemaType?: string;
+  datePublished?: string;
+  dateModified?: string;
+  headline?: string;
+  articleSection?: string;
+  wordcount?: number;
+
+  // Classificação interna
+  series?: string;
+  relatedPosts?: string[];
+  crossLinks?: string[];
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -129,7 +179,7 @@ export function getAllPosts(): BlogPost[] {
           content: processImagePaths(content, year, month),
           year,
           month,
-          // Campos SEO adicionais
+          // Campos SEO básicos
           excerpt: data.excerpt || data.description || "",
           keywords:
             data.keywords ||
@@ -144,6 +194,55 @@ export function getAllPosts(): BlogPost[] {
           ogImage: data.ogImage || "/profile.jpg",
           featured: data.featured || false,
           language: data.language || "pt-BR",
+
+          // Campos SEO avançados
+          metaDescription: data.metaDescription,
+          focusKeyword: data.focusKeyword,
+          relatedKeywords: data.relatedKeywords,
+          authorUrl: data.authorUrl,
+          subcategory: data.subcategory,
+          topics: data.topics,
+          difficulty: data.difficulty,
+          target_audience: data.target_audience,
+          wordCount: data.wordCount,
+          contentType: data.contentType,
+          format: data.format,
+          trending: data.trending,
+          priority: data.priority,
+          publishedAt: data.publishedAt,
+          updatedAt: data.updatedAt,
+          locale: data.locale,
+          alternateUrls: data.alternateUrls,
+
+          // Open Graph
+          ogTitle: data.ogTitle,
+          ogDescription: data.ogDescription,
+          ogImageAlt: data.ogImageAlt,
+          ogType: data.ogType,
+          ogSiteName: data.ogSiteName,
+          ogLocale: data.ogLocale,
+
+          // Twitter Card
+          twitterCard: data.twitterCard,
+          twitterTitle: data.twitterTitle,
+          twitterDescription: data.twitterDescription,
+          twitterImage: data.twitterImage,
+          twitterImageAlt: data.twitterImageAlt,
+          twitterSite: data.twitterSite,
+          twitterCreator: data.twitterCreator,
+
+          // Schema.org
+          schemaType: data.schemaType,
+          datePublished: data.datePublished,
+          dateModified: data.dateModified,
+          headline: data.headline,
+          articleSection: data.articleSection,
+          wordcount: data.wordcount,
+
+          // Classificação interna
+          series: data.series,
+          relatedPosts: data.relatedPosts,
+          crossLinks: data.crossLinks,
         });
       });
 
@@ -175,7 +274,7 @@ export function getAllPosts(): BlogPost[] {
             content: processImagePaths(content, year, month),
             year,
             month,
-            // Campos SEO adicionais
+            // Campos SEO básicos
             excerpt: data.excerpt || data.description || "",
             keywords:
               data.keywords ||
@@ -190,6 +289,55 @@ export function getAllPosts(): BlogPost[] {
             ogImage: data.ogImage || "/profile.jpg",
             featured: data.featured || false,
             language: data.language || "pt-BR",
+
+            // Campos SEO avançados
+            metaDescription: data.metaDescription,
+            focusKeyword: data.focusKeyword,
+            relatedKeywords: data.relatedKeywords,
+            authorUrl: data.authorUrl,
+            subcategory: data.subcategory,
+            topics: data.topics,
+            difficulty: data.difficulty,
+            target_audience: data.target_audience,
+            wordCount: data.wordCount,
+            contentType: data.contentType,
+            format: data.format,
+            trending: data.trending,
+            priority: data.priority,
+            publishedAt: data.publishedAt,
+            updatedAt: data.updatedAt,
+            locale: data.locale,
+            alternateUrls: data.alternateUrls,
+
+            // Open Graph
+            ogTitle: data.ogTitle,
+            ogDescription: data.ogDescription,
+            ogImageAlt: data.ogImageAlt,
+            ogType: data.ogType,
+            ogSiteName: data.ogSiteName,
+            ogLocale: data.ogLocale,
+
+            // Twitter Card
+            twitterCard: data.twitterCard,
+            twitterTitle: data.twitterTitle,
+            twitterDescription: data.twitterDescription,
+            twitterImage: data.twitterImage,
+            twitterImageAlt: data.twitterImageAlt,
+            twitterSite: data.twitterSite,
+            twitterCreator: data.twitterCreator,
+
+            // Schema.org
+            schemaType: data.schemaType,
+            datePublished: data.datePublished,
+            dateModified: data.dateModified,
+            headline: data.headline,
+            articleSection: data.articleSection,
+            wordcount: data.wordcount,
+
+            // Classificação interna
+            series: data.series,
+            relatedPosts: data.relatedPosts,
+            crossLinks: data.crossLinks,
           });
         });
       });

@@ -1,5 +1,13 @@
 User-agent: *
 Allow: /
 
+# Principais seções do site (sitelinks priority)
+Allow: /notes/
+Allow: /#projetos
+Allow: /#contato
+
 # Sitemaps
 Sitemap: https://kvasir.dev/sitemap.xml
+
+# Host
+Host: https://kvasir.dev

@@ -33,15 +33,16 @@ export function createPortfolioSchema(projetos: Projeto[]) {
 export function createBlogPostSchema(post: Note & { content: string }) {
   return {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    dateModified: post.lastModified || post.date,
+    "@type": post.schemaType || "BlogPosting",
+    headline: post.headline || post.title,
+    description: post.metaDescription || post.description,
+    datePublished: post.datePublished || post.publishedAt || post.date,
+    dateModified:
+      post.dateModified || post.updatedAt || post.lastModified || post.date,
     author: {
       "@type": "Person",
       name: post.author || "Carlos Kvasir",
-      url: "https://kvasir.dev",
+      url: post.authorUrl || "https://kvasir.dev",
     },
     publisher: {
       "@type": "Organization",
@@ -49,6 +50,8 @@ export function createBlogPostSchema(post: Note & { content: string }) {
       logo: {
         "@type": "ImageObject",
         url: "https://kvasir.dev/profile.jpg",
+        width: 400,
+        height: 400,
       },
     },
     mainEntityOfPage: {
@@ -60,10 +63,19 @@ export function createBlogPostSchema(post: Note & { content: string }) {
     image: {
       "@type": "ImageObject",
       url: post.ogImage || "https://kvasir.dev/profile.jpg",
+      width: 1200,
+      height: 630,
+      alt: post.ogImageAlt || post.title,
     },
-    articleSection: post.category || "Desenvolvimento Web",
-    keywords: post.keywords || post.tags,
-    wordCount: post.content.length,
+    articleSection:
+      post.articleSection || post.category || "Desenvolvimento Web",
+    keywords: [
+      ...(post.keywords || []),
+      ...(post.relatedKeywords || []),
+      ...(post.tags || []),
+    ].join(", "),
+    wordCount:
+      post.wordcount || post.wordCount || Math.ceil(post.content.length / 5),
     timeRequired: `PT${post.readingTime || 5}M`,
     inLanguage: post.language || "pt-BR",
     url:
@@ -72,8 +84,50 @@ export function createBlogPostSchema(post: Note & { content: string }) {
     about: {
       "@type": "Thing",
       name: post.category || "Desenvolvimento Web",
+      ...(post.topics && { sameAs: post.topics }),
     },
     ...(post.excerpt && { abstract: post.excerpt }),
+    ...(post.difficulty && { educationalLevel: post.difficulty }),
+    ...(post.target_audience && {
+      audience: {
+        "@type": "Audience",
+        audienceType: post.target_audience.join(", "),
+      },
+    }),
+    ...(post.series && {
+      isPartOf: {
+        "@type": "CreativeWorkSeries",
+        name: post.series,
+      },
+    }),
+    ...(post.contentType && { genre: post.contentType }),
+    ...(post.focusKeyword && {
+      mainEntity: {
+        "@type": "Thing",
+        name: post.focusKeyword,
+      },
+    }),
+    // Informações de qualidade e credibilidade
+    ...(post.contentQuality?.factChecked && {
+      reviewedBy: {
+        "@type": "Person",
+        name: post.author || "Carlos Kvasir",
+      },
+    }),
+    // Classificação de conteúdo
+    ...(post.featured && {
+      isAccessibleForFree: true,
+      isFamilyFriendly: true,
+    }),
+    // Métricas de engajamento
+    ...(post.socialProof?.shares &&
+      post.socialProof.shares > 0 && {
+        interactionStatistic: {
+          "@type": "InteractionCounter",
+          interactionType: "https://schema.org/ShareAction",
+          userInteractionCount: post.socialProof.shares,
+        },
+      }),
   };
 }
 

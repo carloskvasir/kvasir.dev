@@ -1,6 +1,6 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { mdxComponents } from "@/components/mdx-components";
-import { BlogPostSEO } from "@/components/seo";
+import { UniversalPostSEO } from "@/components/seo";
 import { getAllPosts, getPostBySlug } from "@/lib/notes";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { Metadata } from "next";
@@ -97,8 +97,8 @@ export default async function NotePostPage({ params }: NotePostPageProps) {
 
   return (
     <MainLayout>
-      {/* SEO e Dados estruturados */}
-      <BlogPostSEO post={post} />
+      {/* SEO e Dados estruturados universais */}
+      <UniversalPostSEO post={post} />
       
       <div className="py-16">
         <div className="max-w-4xl mx-auto">

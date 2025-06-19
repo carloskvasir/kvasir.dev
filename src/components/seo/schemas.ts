@@ -51,15 +51,43 @@ export const WebSiteSchema = {
   url: "https://kvasir.dev",
   description: "Site pessoal de Carlos Kvasir - Desenvolvedor Rails Full Stack",
   inLanguage: "pt-BR",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://kvasir.dev/notes?q={search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
+  potentialAction: [
+    {
+      "@type": "SearchAction",
+      target: "https://kvasir.dev/notes?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  ],
   author: {
     "@type": "Person",
     name: "Carlos Kvasir",
   },
+  mainEntity: [
+    {
+      "@type": "SiteNavigationElement",
+      name: "Home",
+      url: "https://kvasir.dev",
+      description: "Página inicial - Carlos Kvasir Desenvolvedor Rails",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Projetos",
+      url: "https://kvasir.dev#projetos",
+      description: "Portfolio de projetos desenvolvidos em Rails e React",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Posts",
+      url: "https://kvasir.dev/notes",
+      description: "Blog com artigos sobre desenvolvimento Rails e web",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Contato",
+      url: "https://kvasir.dev#contato",
+      description: "Entre em contato para projetos de desenvolvimento",
+    },
+  ],
 };
 
 export const OrganizationSchema = {
@@ -142,6 +170,43 @@ export const ProfessionalServiceSchema = {
       },
     ],
   },
+};
+
+export const SiteNavigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  "@id": "https://kvasir.dev#navigation",
+  name: "Navegação Principal",
+  hasPart: [
+    {
+      "@type": "SiteNavigationElement",
+      name: "Home",
+      url: "https://kvasir.dev",
+      description: "Página inicial - Carlos Kvasir Desenvolvedor Rails",
+      position: 1,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Projetos",
+      url: "https://kvasir.dev/#projetos",
+      description: "Portfolio de projetos desenvolvidos em Rails e React",
+      position: 2,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Posts",
+      url: "https://kvasir.dev/notes",
+      description: "Blog com artigos sobre desenvolvimento Rails e web",
+      position: 3,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Contato",
+      url: "https://kvasir.dev/#contato",
+      description: "Entre em contato para projetos de desenvolvimento",
+      position: 4,
+    },
+  ],
 };
 
 export const FAQSchema = {

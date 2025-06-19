@@ -6,25 +6,37 @@ export default function sitemap() {
   const posts = getAllPosts();
   const baseUrl = "https://kvasir.dev";
 
-  // URLs estáticas
+  // URLs estáticas - principais sitelinks com alta prioridade
   const staticUrls = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "monthly" as const,
+      changeFrequency: "weekly" as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/notes`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#projetos`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#contato`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/projetos`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: 0.7,
     },
   ];
 

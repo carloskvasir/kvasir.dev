@@ -1,20 +1,84 @@
 ---
-title: "Instalando mise e Ruby no Linux Mint/Ubuntu"
+title: "Como Instalar mise e Ruby no Linux Mint/Ubuntu - Guia Completo 2024"
+slug: "instalando-mise-ruby-ubuntu"
 date: "2024-12-17"
 lastModified: "2024-12-17"
-description: "Guia completo para instalar o mise (gerenciador de versões) e configurar Ruby no Linux Mint e Ubuntu de forma simples e eficiente."
-excerpt: "O mise é um gerenciador de versões moderno e rápido que substitui ferramentas como rbenv, nvm, pyenv. Veja como instalar e configurar Ruby no Linux."
-tags: ["ruby", "mise", "ubuntu", "linux", "desenvolvimento", "gerenciador-versões"]
-keywords: ["instalar ruby ubuntu", "mise linux", "gerenciador versões ruby", "rtx ruby", "ubuntu ruby setup", "linux mint ruby"]
-author: "Carlos Kvasir"
-category: "Tutorial"
-featured: true
-language: "pt-BR"
-canonicalUrl: "https://kvasir.dev/notes/2024/12/instalando-mise-ruby-ubuntu"
-ogImage: "/profile.jpg"
----
+publishedAt: "2024-12-17T10:00:00.000Z"
+updatedAt: "2024-12-17T10:00:00.000Z"
 
-# Instalando mise e Ruby no Linux Mint/Ubuntu
+# SEO Meta Information
+description: "Guia passo-a-passo para instalar mise (gerenciador de versões) e Ruby no Linux Mint/Ubuntu. Substitua rbenv e nvm por uma ferramenta moderna e rápida."
+metaDescription: "Instale mise e Ruby no Ubuntu/Linux Mint facilmente. Guia completo 2024 com passo-a-passo detalhado. Substitua rbenv, nvm e pyenv por mise."
+excerpt: "O mise é um gerenciador de versões moderno e rápido que substitui ferramentas como rbenv, nvm, pyenv. Veja como instalar e configurar Ruby no Linux."
+
+# Keywords and Tags
+tags: ["ruby", "mise", "ubuntu", "linux", "linux mint", "desenvolvimento", "gerenciador-versões", "setup", "instalação"]
+keywords: ["instalar ruby ubuntu", "mise linux tutorial", "gerenciador versões ruby", "mise ruby ubuntu", "ubuntu ruby setup", "linux mint ruby", "instalar mise ubuntu", "ruby version manager", "mise vs rbenv"]
+focusKeyword: "instalar mise ruby ubuntu"
+relatedKeywords: ["mise linux", "ruby ubuntu", "gerenciador versões", "mise tutorial"]
+
+# Content Classification
+author: "Carlos Kvasir"
+authorUrl: "https://kvasir.dev"
+category: "Tutorial"
+subcategory: "Instalação e Setup"
+topics: ["Ruby", "Linux", "Ubuntu", "Mise", "Gerenciador de Versões", "Setup"]
+difficulty: "Iniciante"
+target_audience: ["Desenvolvedores", "Iniciantes em Ruby", "Usuários Linux"]
+
+# Content Metrics
+readingTime: "8 min"
+wordCount: 2100
+contentType: "tutorial"
+format: "step-by-step"
+featured: true
+practical: true
+priority: "medium"
+
+# SEO Technical
+language: "pt-BR"
+locale: "pt_BR"
+canonicalUrl: "https://kvasir.dev/notes/2024/12/instalando-mise-ruby-ubuntu"
+alternateUrls:
+  - hreflang: "pt-BR"
+    href: "https://kvasir.dev/notes/2024/12/instalando-mise-ruby-ubuntu"
+
+# Open Graph
+ogTitle: "Como Instalar mise e Ruby no Ubuntu/Linux Mint - Tutorial 2024"
+ogDescription: "Guia completo para instalar mise e Ruby no Linux. Passo-a-passo detalhado, comandos prontos e dicas profissionais."
+ogImage: "/images/mise-ruby-ubuntu-tutorial.jpg"
+ogImageAlt: "Tutorial mise Ruby Ubuntu - Guia de Instalação Completo"
+ogType: "article"
+ogUrl: "https://kvasir.dev/notes/2024/12/instalando-mise-ruby-ubuntu"
+
+# Twitter Card
+twitterCard: "summary_large_image"
+twitterTitle: "Instalar mise e Ruby no Ubuntu: Guia Completo 2024"
+twitterDescription: "Passo-a-passo para configurar mise e Ruby no Linux. Substitua rbenv por uma ferramenta moderna."
+twitterImage: "/images/mise-ruby-ubuntu-tutorial.jpg"
+twitterImageAlt: "Tutorial Ruby Ubuntu - mise Installation Guide"
+twitterCreator: "@carloskvasir"
+twitterSite: "@carloskvasir"
+
+# Schema.org
+schema: "article"
+articleType: "HowTo"
+schemaType: ["Article", "HowTo", "TechArticle"]
+
+# Internal SEO
+series: "Tutoriais Ruby"
+seriesOrder: 1
+relatedPosts: ["ambiente-desenvolvimento-rails", "por-que-ruby-on-rails-e-a-melhor-escolha"]
+crossLinks: ["/notes", "/#contato"]
+
+# Content Quality Indicators
+stepByStep: true
+codeExamples: true
+commandLine: true
+tested: true
+troubleshooting: true
+platforms: ["Ubuntu", "Linux Mint", "Debian"]
+---
 
 O **mise** (anteriormente conhecido como rtx) é um gerenciador de versões moderno e rápido que substitui ferramentas como rbenv, nvm, pyenv e outras. Neste guia, vou mostrar como instalar o mise e configurar o Ruby no Linux Mint ou Ubuntu.
 
