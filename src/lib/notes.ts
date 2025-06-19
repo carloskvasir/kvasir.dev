@@ -79,6 +79,7 @@ export interface BlogPost {
 
   // Campos SEO básicos
   excerpt?: string;
+  cardDescription?: string; // Descrição específica para cards/listagens
   keywords?: string[];
   author?: string;
   category?: string;
@@ -181,6 +182,7 @@ export function getAllPosts(): BlogPost[] {
           month,
           // Campos SEO básicos
           excerpt: data.excerpt || data.description || "",
+          cardDescription: data.cardDescription || data.excerpt || data.description || "",
           keywords:
             data.keywords ||
             extractKeywords(content, data.tags || [], data.title || slug),
@@ -276,6 +278,7 @@ export function getAllPosts(): BlogPost[] {
             month,
             // Campos SEO básicos
             excerpt: data.excerpt || data.description || "",
+            cardDescription: data.cardDescription || data.excerpt || data.description || "",
             keywords:
               data.keywords ||
               extractKeywords(content, data.tags || [], data.title || slug),

@@ -170,12 +170,6 @@ export default async function NotePostPage({ params }: NotePostPageProps) {
                 </div>
               )}
             </div>
-            
-            {(post.excerpt || post.description) && (
-              <p className="text-xl text-muted-foreground">
-                {post.excerpt || post.description}
-              </p>
-            )}
           </header>
 
           {/* Post content */}

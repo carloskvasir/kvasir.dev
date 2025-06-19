@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:https": "next dev --turbopack --experimental-https --experimental-https-key ./localhost+2-key.pem --experimental-https-cert ./localhost+2.pem",
-    "build": "npm run generate:rss && next build",
-    "export": "npm run generate:rss && next build",
+    "build": "npm run generate:rss && npm run validate:mdx && next build",
+    "export": "npm run generate:rss && npm run validate:mdx && next build",
     "start": "next start",
     "lint": "next lint",
     "generate:rss": "node scripts/generate-rss.js",
     "validate:rss": "node scripts/validate-rss.js",
+    "validate:mdx": "node scripts/validate-mdx.js",
     "postbuild": "npm run generate:rss && npm run validate:rss"
   },
   "dependencies": {
@@ -22,7 +23,6 @@
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "gray-matter": "^4.0.3",
     "lucide-react": "^0.516.0",
     "next": "15.3.3",
     "next-mdx-remote": "^5.0.0",
@@ -45,6 +45,8 @@
     "@types/rss": "^0.0.32",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "glob": "^11.0.3",
+    "gray-matter": "^4.0.3",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"

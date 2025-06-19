@@ -118,9 +118,9 @@ export default function NotesPage() {
                       </div>
                     </div>
                     
-                    {(post.excerpt || post.description) && (
+                    {post.cardDescription && (
                       <p className="text-muted-foreground leading-relaxed">
-                        {post.excerpt || post.description}
+                        {post.cardDescription}
                       </p>
                     )}
                     
