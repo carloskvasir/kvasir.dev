@@ -130,8 +130,14 @@ export async function generateMetadata({ params }: PostPageProps) {
     };
   }
 
+  // URL canônico sempre aponta para a rota principal estruturada
+  const canonicalUrl = post.canonicalUrl || `https://kvasir.dev/notes/${post.year}/${post.month}/${post.slug}`;
+
   return {
     title: `${post.title} | kvasir.dev`,
     description: post.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
   };
 }

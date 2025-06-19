@@ -1,12 +1,15 @@
 User-agent: *
 Allow: /
 
-# Principais seções do site (sitelinks priority)
+# Principais seções do site
 Allow: /notes/
-Allow: /#projetos
-Allow: /#contato
+Allow: /projetos/
+Allow: /content/
 
-# Sitemaps
+# Bloquear rotas alternativas/legacy (usam canonical para rota principal)
+Disallow: /post/
+
+# Sitemap
 Sitemap: https://kvasir.dev/sitemap.xml
 
 # Host

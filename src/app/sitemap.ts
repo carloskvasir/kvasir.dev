@@ -6,7 +6,7 @@ export default function sitemap() {
   const posts = getAllPosts();
   const baseUrl = "https://kvasir.dev";
 
-  // URLs estáticas - principais sitelinks com alta prioridade
+  // URLs estáticas - principais páginas
   const staticUrls = [
     {
       url: baseUrl,
@@ -21,19 +21,13 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#projetos`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#contato`,
+      url: `${baseUrl}/projetos`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/projetos`,
+      url: `${baseUrl}/content`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
@@ -43,18 +37,10 @@ export default function sitemap() {
   // URLs dos posts
   const postUrls = posts.map((post) => ({
     url: `${baseUrl}/notes/${post.year}/${post.month}/${post.slug}`,
-    lastModified: new Date(post.date),
+    lastModified: new Date(post.lastModified || post.date),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
-  // URLs dos posts (rota alternativa)
-  const postAltUrls = posts.map((post) => ({
-    url: `${baseUrl}/post/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.5,
-  }));
-
-  return [...staticUrls, ...postUrls, ...postAltUrls];
+  return [...staticUrls, ...postUrls];
 }
