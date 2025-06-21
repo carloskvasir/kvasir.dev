@@ -4,9 +4,9 @@
         <description><![CDATA[Blog especializado em Ruby on Rails, desenvolvimento web e tecnologias modernas. Tutoriais práticos, dicas e experiências reais de desenvolvimento.]]></description>
         <link>https://kvasir.dev</link>
         <generator>Next.js Static RSS Generator</generator>
-        <lastBuildDate>Thu, 19 Jun 2025 23:15:49 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Jun 2025 08:15:13 GMT</lastBuildDate>
         <atom:link href="https://kvasir.dev/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 19 Jun 2025 23:15:49 GMT</pubDate>
+        <pubDate>Sat, 21 Jun 2025 08:15:13 GMT</pubDate>
         <copyright><![CDATA[Copyright 2025 Carlos Kvasir]]></copyright>
         <language><![CDATA[pt-BR]]></language>
         <managingEditor><![CDATA[carlos@kvasir.dev (Carlos Kvasir)]]></managingEditor>
